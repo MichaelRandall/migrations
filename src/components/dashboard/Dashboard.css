@@ -7,16 +7,32 @@
   /* border: solid 1px red; */
 }
 
+/* Holds members icon and members details sections */
 #members_holder {
   grid-column: 1 / span 3;
   grid-row: 2;
-  border: solid 1px blue;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column-gap: 6px;
+  border: solid 1px green;
+
+  /* border: solid 1px blue; */
 }
 
+#members_images {
+  grid-column: 1 / 2;
+  border: solid 1px orangered;
+}
+#members_details {
+  grid-column: 3;
+  border: solid 1px green;
+}
+
+/* Holds migrations details */
 #migrations_holder {
   grid-column: 4 / span 3;
   grid-row: 2;
-  border: solid 1px rgb(255, 0, 119);
+  /* border: solid 1px rgb(255, 0, 119); */
 }
 
 .stats {

@@ -16,7 +16,7 @@ const MemberList = ({ members, handleMemberHover }) => {
               style={{ width: 60 }}
               onMouseOver={() => {
                 event.preventDefault();
-                handleMemberHover({ member });
+                // handleMemberHover({ member });
               }}
             >
               <img

@@ -23,13 +23,13 @@ class MembersPage extends React.Component {
     return (
       <>
         <h5>Members</h5>
-        <div id="members_display">
+        {/* <div id="members_display"> */}
+        <div>
           <MemberList
             members={this.props.members}
             handleMemberHover={this.handleMemberHover}
           />
         </div>
-        <div id="members_info">Some Content</div>
 
         {/* <MemberDetails /> */}
       </>

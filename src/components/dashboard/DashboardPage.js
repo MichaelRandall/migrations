@@ -14,7 +14,10 @@ const DashboardPage = () => (
     </div>
     <div id="dashboard">
       <div id="members_holder">
-        <MembersPage />
+        <div id="members_images">
+          <MembersPage />
+        </div>
+        <div id="members_details">Details plus more things</div>
       </div>
       <div id="migrations_holder">
         <MigrationsPage />
