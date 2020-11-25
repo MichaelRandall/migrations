@@ -1,0 +1,49 @@
+#dashboard {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-column-gap: 6px;
+  /* border: solid 1px red; */
+}
+
+#members_holder {
+  grid-column: 1 / span 3;
+  grid-row: 2;
+  border: solid 1px blue;
+}
+
+#migrations_holder {
+  grid-column: 4 / span 3;
+  grid-row: 2;
+  border: solid 1px rgb(255, 0, 119);
+}
+
+.stats {
+  border: solid 1px green;
+}
+
+#stat1 {
+  grid-column: 1;
+  grid-row: 3;
+}
+#stat2 {
+  grid-column: 2;
+  grid-row: 3;
+}
+#stat3 {
+  grid-column: 3;
+  grid-row: 3;
+}
+#stat4 {
+  grid-column: 4;
+  grid-row: 3;
+}
+#stat5 {
+  grid-column: 5;
+  grid-row: 3;
+}
+#stat6 {
+  grid-column: 6;
+  grid-row: 3;
+}

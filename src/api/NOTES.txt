@@ -1,0 +1,1 @@
+The api folder contains all files that the app uses to make api calls
