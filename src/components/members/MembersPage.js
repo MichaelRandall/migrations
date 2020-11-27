@@ -2,9 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import * as memberActions from "../../redux/actions/memberActions";
 import { bindActionCreators } from "redux";
-import "./members.css";
 import MemberList from "./MemberList";
-import MemberDetails from "./MemberDetails";
 
 import PropTypes from "prop-types";
 
@@ -15,23 +13,17 @@ class MembersPage extends React.Component {
     });
   }
 
-  handleMemberHover = ({ member }) => {
-    alert(member.name);
+  handleMemberHover = (member) => {
+    document.getElementById("members_details").innerText = member.name;
   };
 
   render() {
     return (
       <>
-        <h5>Members</h5>
-        {/* <div id="members_display"> */}
-        <div>
           <MemberList
             members={this.props.members}
             handleMemberHover={this.handleMemberHover}
           />
-        </div>
-
-        {/* <MemberDetails /> */}
       </>
     );
   }

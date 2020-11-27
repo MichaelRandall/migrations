@@ -1,42 +1,63 @@
 #dashboard {
-  box-sizing: border-box;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto;
-  grid-column-gap: 6px;
-  /* border: solid 1px red; */
+  column-gap: 10px;
+  row-gap: 10px;
 }
 
-/* Holds members icon and members details sections */
-#members_holder {
-  grid-column: 1 / span 3;
-  grid-row: 2;
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-column-gap: 6px;
-  border: solid 1px green;
-
-  /* border: solid 1px blue; */
+/* Id of reference element that holds members' icons */
+#members {
+  box-sizing: border-box;
+  grid-column: 1;
+  grid-row: 1;
+  column-gap: 1px;
+  row-gap: 1px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  min-width: 260px;
+  background-color: #444;
+  border: solid 2px wheat;
+  /* padding: 10px 10px 10px 10px; */
 }
 
-#members_images {
-  grid-column: 1 / 2;
-  border: solid 1px orangered;
+.avatar_box {
+  width: 56px;
+  height: 60px;
+  /* padding-top: 4px; */
 }
+
+.avatar {
+  border: solid 4px rgb(192, 19, 19);
+  /* border-radius: 50%; */
+  width: 50px;
+  display: block;
+  margin: auto;
+}
+/* Id of reference element that holds members' details */
 #members_details {
-  grid-column: 3;
-  border: solid 1px green;
+  grid-column: 2;
+  grid-row: 1;
+  color: #444;
 }
 
 /* Holds migrations details */
-#migrations_holder {
-  grid-column: 4 / span 3;
-  grid-row: 2;
-  /* border: solid 1px rgb(255, 0, 119); */
+#migrations {
+  grid-column: 3;
+  grid-row: 1;
+  color: #444;
 }
 
-.stats {
-  border: solid 1px green;
+#stats {
+  grid-column: 1 / span 3;
+  grid-row: 2;
+}
+
+.layout_section {
+  background-color: wheat;
+  padding: 10px 10px 10px 10px;
+  /* border: solid 1px red; */
 }
 
 #stat1 {
@@ -49,17 +70,5 @@
 }
 #stat3 {
   grid-column: 3;
-  grid-row: 3;
-}
-#stat4 {
-  grid-column: 4;
-  grid-row: 3;
-}
-#stat5 {
-  grid-column: 5;
-  grid-row: 3;
-}
-#stat6 {
-  grid-column: 6;
   grid-row: 3;
 }

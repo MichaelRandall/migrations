@@ -1,6 +1,13 @@
 #app {
-  max-width: 850px;
+  /* max-width: 850px; */
+  max-width: 1024px;
   margin: 0 auto;
+  background-color: #444;
+}
+
+body {
+  background-color: #444;
+  color: wheat;
 }
 
 nav {

@@ -15,7 +15,6 @@ class MigrationsPage extends React.Component {
   render() {
     return (
       <>
-        <h5>Migrations</h5>
         {this.props.migrations.map((migration) => (
           <div key={migration.app_name}>{migration.app_name}</div>
         ))}

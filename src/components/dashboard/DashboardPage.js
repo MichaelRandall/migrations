@@ -7,38 +7,29 @@ import "./Dashboard.css";
 const DashboardPage = () => (
   <>
     <div>
-      <h1>SSI Migration Tracker</h1>
+      <h1>SSI Migrations</h1>
       {/* <Link to="about" className="btn btn-primary btn-lg">
         Learn more
       </Link> */}
     </div>
     <div id="dashboard">
-      <div id="members_holder">
-        <div id="members_images">
+      <div id="members" className="layout_section">
           <MembersPage />
-        </div>
-        <div id="members_details">Details plus more things</div>
       </div>
-      <div id="migrations_holder">
+      <div id="members_details" className="layout_section">Details plus more things</div>
+      <div id="migrations" className="layout_section">
         <MigrationsPage />
       </div>
-      <div className="stats" id="stat1">
-        stat
-      </div>
-      <div className="stats" id="stat2">
-        stat
-      </div>
-      <div className="stats" id="stat3">
-        stat
-      </div>
-      <div className="stats" id="stat4">
-        stat
-      </div>
-      <div className="stats" id="stat5">
-        stat
-      </div>
-      <div className="stats" id="stat6">
-        stat
+      <div id="stats" className="layout_section">
+        <div className="stats">
+          stat
+        </div>
+        <div className="stats">
+          stat
+        </div>
+        <div className="stats">
+          stat
+        </div>
       </div>
     </div>
   </>
