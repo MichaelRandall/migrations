@@ -8,6 +8,7 @@ import CoursesPage from "./courses/CoursesPage";
 import MembersPage from "./members/MembersPage";
 import MigrationsPage from "./migrations/MigrationsPage";
 import StatusPage from "./status/StatusPage";
+import MigrationForm from "./migrations/MigrationForm";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         <Route path="/courses" component={CoursesPage} />
         <Route path="/members" component={MembersPage} />
         <Route path="/migrations" component={MigrationsPage} />
+        <Route path="/migration/:id" component={MigrationForm} />
+        <Route path="/migration" component={MigrationForm} />
         <Route path="/status" component={StatusPage} />
         <Route component={PageNotFound} />
       </Switch>

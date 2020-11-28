@@ -18,7 +18,7 @@
   align-content: flex-start;
   min-width: 260px;
   background-color: #444;
-  border: solid 2px wheat;
+  /* border: solid 2px wheat; */
   /* padding: 10px 10px 10px 10px; */
 }
 
