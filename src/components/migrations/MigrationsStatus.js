@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import * as migrationActions from "../../redux/actions/migrationActions";
 import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
-import MigrationList from "./MigrationList";
+import MigrationStatusList from "./MigrationStatusList";
 
 import PropTypes from "prop-types";
 
-class MigrationsPage extends React.Component {
+class MigrationsStatus extends React.Component {
   componentDidMount() {
     this.props.actions.loadMigrations().catch((error) => {
       alert("Loading migrations failed" + error);
@@ -15,11 +15,11 @@ class MigrationsPage extends React.Component {
   }
 
   render() {
-    return <MigrationList migrations={this.props.migrations} />;
+    return <MigrationStatusList migrations={this.props.migrations} />;
   }
 }
 
-MigrationsPage.propTypes = {
+MigrationsStatus.propTypes = {
   migrations: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
 };
@@ -36,4 +36,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MigrationsPage);
+export default connect(mapStateToProps, mapDispatchToProps)(MigrationsStatus);

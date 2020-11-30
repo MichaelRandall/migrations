@@ -20,10 +20,10 @@ class MembersPage extends React.Component {
   render() {
     return (
       <>
-          <MemberList
-            members={this.props.members}
-            handleMemberHover={this.handleMemberHover}
-          />
+        <MemberList
+          members={this.props.members}
+          handleMemberHover={this.handleMemberHover}
+        />
       </>
     );
   }

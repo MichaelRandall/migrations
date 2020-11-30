@@ -6,8 +6,8 @@ export function getMigrations() {
 }
 
 export function saveMigration(migration) {
-  return fetch(baseUrl + (migration.migration_id || ""), {
-    method: migration.migration_id ? "PUT" : "POST", // POST for create, PUT to update when id already exists.
+  return fetch(baseUrl + (migration.id || ""), {
+    method: migration.id ? "PUT" : "POST", // POST for create, PUT to update when id already exists.
     headers: { "content-type": "application/json" },
     body: JSON.stringify(migration),
   })

@@ -5,25 +5,20 @@ import PropTypes from "prop-types";
 const MemberList = ({ members, handleMemberHover }) => {
   return (
     <>
-        {members.map((member) => {
-          return (
-            <div
-              className="avatar_box"
-              key={member.id}
-              onMouseOver={() => {
-                event.preventDefault();
-                handleMemberHover(member );
-              }}
-            >
-              <img
-                className="avatar"
-                src={member.pic}
-                alt={member.sname}
-              />
-              {/* <a href="www.google.com" className="card-link stretched-link" /> */}
-            </div>
-          );
-        })}
+      {members.map((member) => {
+        return (
+          <div
+            className="avatar_box"
+            key={member.id}
+            onMouseOver={(event) => {
+              event.preventDefault();
+              handleMemberHover(member);
+            }}
+          >
+            <img className="avatar" src={member.pic} alt={member.sname} />
+          </div>
+        );
+      })}
     </>
   );
 };
