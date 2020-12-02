@@ -1,6 +1,6 @@
 import React from "react";
-import MembersPage from "../members/MembersPage";
-import MigrationsStatus from "../migrations/MigrationsStatus";
+import DashboardMigrations from "../dashboard/DashboardMigrations";
+import DashboardMembers from "../dashboard/DashboardMembers";
 
 import "./Dashboard.css";
 
@@ -14,18 +14,28 @@ const DashboardPage = () => (
     </div>
     <div id="dashboard">
       <div id="members" className="layout_section">
-        <MembersPage />
+        <DashboardMembers />
       </div>
       <div id="members_details" className="layout_section">
         Details + more to come
       </div>
       <div id="migrations" className="layout_section">
-        <MigrationsStatus />
+        <DashboardMigrations />
       </div>
-      <div id="stats" className="layout_section">
+      <div id="stats-left" className="layout_section">
+        {/* <div className="stats">stat</div>
         <div className="stats">stat</div>
+        <div className="stats">stat</div> */}
+      </div>
+      <div id="stats-center" className="layout_section">
+        {/* <div className="stats">stat</div>
         <div className="stats">stat</div>
+        <div className="stats">stat</div> */}
+      </div>
+      <div id="stats-right" className="layout_section">
+        {/* <div className="stats">stat</div>
         <div className="stats">stat</div>
+        <div className="stats">stat</div> */}
       </div>
     </div>
   </>

@@ -4,22 +4,20 @@ const path = require("path");
 const mockData = require("./mockData");
 
 const {
-  courses,
-  authors,
   members,
   migrations,
   migration_stages,
   migration_tasks,
   migration_types,
+  operating_systems,
 } = mockData;
 const data = JSON.stringify({
-  courses,
-  authors,
   members,
   migrations,
   migration_stages,
   migration_tasks,
   migration_types,
+  operating_systems,
 });
 const filepath = path.join(__dirname, "db.json");
 

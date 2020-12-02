@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import PropTypes from "prop-types";
 
-class MigrationStatusList extends React.Component {
+class DashboardMigrationsList extends React.Component {
   componentDidMount() {
     this.props.actions.loadMigrations().catch((error) => {
       alert("Loading migrations failed" + error);
@@ -54,7 +54,7 @@ class MigrationStatusList extends React.Component {
   }
 }
 
-MigrationStatusList.propTypes = {
+DashboardMigrationsList.propTypes = {
   migrations: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
 };
@@ -74,4 +74,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MigrationStatusList);
+)(DashboardMigrationsList);

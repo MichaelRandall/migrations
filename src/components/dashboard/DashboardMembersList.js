@@ -2,7 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 // import { Link } from "react-router-dom";
 
-const MemberList = ({ members, handleMemberEnter, handleMemberLeave }) => {
+const DashboardMembersList = ({
+  members,
+  handleMemberEnter,
+  handleMemberLeave,
+}) => {
   return (
     <>
       {members.map((member) => {
@@ -27,10 +31,10 @@ const MemberList = ({ members, handleMemberEnter, handleMemberLeave }) => {
   );
 };
 
-MemberList.propTypes = {
+DashboardMembersList.propTypes = {
   members: PropTypes.array.isRequired,
   handleMemberEnter: PropTypes.func.isRequired,
   handleMemberLeave: PropTypes.func.isRequired,
 };
 
-export default MemberList;
+export default DashboardMembersList;

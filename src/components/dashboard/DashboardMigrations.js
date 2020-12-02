@@ -2,24 +2,25 @@ import React from "react";
 import { connect } from "react-redux";
 import * as migrationActions from "../../redux/actions/migrationActions";
 import { bindActionCreators } from "redux";
-import { Link } from "react-router-dom";
-import MigrationStatusList from "./MigrationStatusList";
+import DashboardMigrationsList from "./DashboardMigrationsList";
 
 import PropTypes from "prop-types";
 
-class MigrationsStatus extends React.Component {
+class DashboardMigrations extends React.Component {
   componentDidMount() {
-    this.props.actions.loadMigrations().catch((error) => {
-      alert("Loading migrations failed" + error);
-    });
+    if (this.props.migrations.length === 0) {
+      this.props.actions.loadMigrations().catch((error) => {
+        alert("Loading migrations failed" + error);
+      });
+    }
   }
 
   render() {
-    return <MigrationStatusList migrations={this.props.migrations} />;
+    return <DashboardMigrationsList migrations={this.props.migrations} />;
   }
 }
 
-MigrationsStatus.propTypes = {
+DashboardMigrations.propTypes = {
   migrations: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
 };
@@ -36,4 +37,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MigrationsStatus);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DashboardMigrations);

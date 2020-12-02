@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import TextInput from "../common/TextInput";
 import SelectInput from "../common/SelectInput";
 
+// note: name of text input corresponds to the property for example: name=app_name, value=migration.app_name
 const MigrationForm = ({
   migration,
   members,
@@ -26,7 +27,6 @@ const MigrationForm = ({
         onChange={onChange}
         error={errors.app_name}
       />
-
       <SelectInput
         name="ownerId"
         label="Member"

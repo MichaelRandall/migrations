@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const MigrationList = ({ migrations }) => (
-  <table clasName="table">
+  <table className="table table_format">
     <thead>
       <tr>
         <th>Application</th>
@@ -22,7 +22,7 @@ const MigrationList = ({ migrations }) => (
                 {migration.app_name}
               </Link>
             </td>
-            <td>{migration.migration_ownerId}</td>
+            <td>{migration.ownerName}</td>
             <td>{migration.status}</td>
             <td>{migration.migration_type}</td>
             <td>{migration.os}</td>

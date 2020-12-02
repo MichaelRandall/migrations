@@ -1,7 +1,7 @@
 import * as type from "./actionTypes";
 import * as memberApi from "../../api/memberApi";
 
-export function loadMemberSuccess(members) {
+export function loadMembersSuccess(members) {
   return { type: type.LOAD_MEMBERS_SUCCESS, members: members };
 }
 
@@ -11,7 +11,7 @@ export function loadMembers() {
     return memberApi
       .getMembers()
       .then((members) => {
-        dispatch(loadMemberSuccess(members));
+        dispatch(loadMembersSuccess(members));
       })
       .catch((error) => {
         throw error;

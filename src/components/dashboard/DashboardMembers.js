@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import * as memberActions from "../../redux/actions/memberActions";
 import * as migrationActions from "../../redux/actions/migrationActions";
 import { bindActionCreators } from "redux";
-import MemberList from "./MemberList";
+import DashboardMembersList from "./DashboardMembersList";
 
 import PropTypes from "prop-types";
 
-class MembersPage extends React.Component {
+class DashboardMembers extends React.Component {
   componentDidMount() {
     const { members, migrations, actions } = this.props;
     if (members.length === 0) {
@@ -25,7 +25,7 @@ class MembersPage extends React.Component {
 
   handleMemberEnter = (member) => {
     // event.target.style.border = "black";
-    const myString = `Name: ${member.name} \n Migrations: ${member.migrations}`;
+    const myString = `${member.name} \n Migrations: ${member.migrations}`;
     document.getElementById("members_details").innerText = myString;
   };
 
@@ -37,7 +37,7 @@ class MembersPage extends React.Component {
 
   render() {
     return (
-      <MemberList
+      <DashboardMembersList
         members={this.props.members}
         handleMemberEnter={this.handleMemberEnter}
       />
@@ -45,18 +45,23 @@ class MembersPage extends React.Component {
   }
 }
 
-MembersPage.propTypes = {
+DashboardMembers.propTypes = {
   members: PropTypes.array.isRequired,
   migrations: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
 };
 
+// state.migrations uses js reduce function
 function mapStateToProps(state) {
+  debugger;
   return {
     members: state.members.map((member) => {
       return {
         ...member,
-        migrations: 7,
+        migrations: state.migrations.reduce(
+          (acc, cur) => (cur.migration_ownerId === member.id ? ++acc : acc),
+          0
+        ),
       };
     }),
     migrations: state.migrations,
@@ -75,4 +80,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MembersPage);
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardMembers);

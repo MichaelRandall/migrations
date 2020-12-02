@@ -38,7 +38,7 @@ export function loadMigrations() {
 }
 
 export function saveMigration(migration) {
-  return function (dispatch, getState) {
+  return function (dispatch) {
     return migrationApi
       .saveMigration(migration)
       .then((savedMigration) => {

@@ -19,7 +19,7 @@ function ManageMigrationPage({
 }) {
   //local state defined, not redux state
   const [migration, setMigration] = useState({ ...props.migration });
-  const [errors, setErrors] = useState({});
+  const [errors] = useState({});
 
   useEffect(() => {
     if (migrations.length === 0) {

@@ -1,89 +1,3 @@
-const courses = [
-  {
-    id: 1,
-    title: "Securing React Apps with Auth0",
-    slug: "react-auth0-authentication-security",
-    authorId: 1,
-    category: "JavaScript",
-  },
-  {
-    id: 2,
-    title: "React: The Big Picture",
-    slug: "react-big-picture",
-    authorId: 1,
-    category: "JavaScript",
-  },
-  {
-    id: 3,
-    title: "Creating Reusable React Components",
-    slug: "react-creating-reusable-components",
-    authorId: 1,
-    category: "JavaScript",
-  },
-  {
-    id: 4,
-    title: "Building a JavaScript Development Environment",
-    slug: "javascript-development-environment",
-    authorId: 1,
-    category: "JavaScript",
-  },
-  {
-    id: 5,
-    title: "Building Applications with React and Redux",
-    slug: "react-redux-react-router-es6",
-    authorId: 1,
-    category: "JavaScript",
-  },
-  {
-    id: 6,
-    title: "Building Applications in React and Flux",
-    slug: "react-flux-building-applications",
-    authorId: 1,
-    category: "JavaScript",
-  },
-  {
-    id: 7,
-    title: "Clean Code: Writing Code for Humans",
-    slug: "writing-clean-code-humans",
-    authorId: 1,
-    category: "Software Practices",
-  },
-  {
-    id: 8,
-    title: "Architecting Applications for the Real World",
-    slug: "architecting-applications-dotnet",
-    authorId: 1,
-    category: "Software Architecture",
-  },
-  {
-    id: 9,
-    title: "Becoming an Outlier: Reprogramming the Developer Mind",
-    slug: "career-reboot-for-developer-mind",
-    authorId: 1,
-    category: "Career",
-  },
-  {
-    id: 10,
-    title: "Web Component Fundamentals",
-    slug: "web-components-shadow-dom",
-    authorId: 1,
-    category: "HTML5",
-  },
-];
-
-const authors = [
-  { id: 1, name: "Cory House" },
-  { id: 2, name: "Scott Allen" },
-  { id: 3, name: "Dan Wahlin" },
-];
-
-const newCourse = {
-  id: null,
-  title: "",
-  authorId: null,
-  category: "",
-};
-
 const members = [
   {
     id: 1,
@@ -148,7 +62,7 @@ const migrations = [
     id: 1,
     migration_ownerId: 2,
     migration_type: "PaaS",
-    os: "nothing",
+    os: null,
     app_name: "MOBB",
     status: "Stuck",
     S1_T1: "Complete",
@@ -171,7 +85,7 @@ const migrations = [
     id: 2,
     migration_ownerId: 2,
     migration_type: "PaaS",
-    os: "nothing",
+    os: null,
     app_name: "W3.SPA",
     status: "Stuck",
     S1_T1: "Complete",
@@ -185,7 +99,7 @@ const migrations = [
     migration_ownerId: 2,
     migration_type: "IaaS",
     os: "Linux",
-    app_name: "SooWebCams",
+    app_name: "SOOWEBCAMS",
     status: "In-Progress",
     S1_T1: "Complete",
     S1_T2: "Complete",
@@ -244,7 +158,7 @@ const migrations = [
   },
   {
     id: 5,
-    migration_ownerId: 3,
+    migration_ownerId: 4,
     migration_type: "IaaS",
     os: "Linux",
     app_name: "ERD.RSM",
@@ -288,7 +202,7 @@ const migrations = [
     id: 7,
     migration_ownerId: 5,
     migration_type: "PaaS",
-    os: "nothing",
+    os: null,
     app_name: "LRP.GEO",
     status: "In-Progress",
     S1_T1: "In-Progress",
@@ -336,9 +250,9 @@ const migrations = [
   },
   {
     id: 9,
-    migration_ownerId: 2,
+    migration_ownerId: 4,
     migration_type: "PaaS",
-    os: "nothing",
+    os: null,
     app_name: "MOBBEY",
     status: "Stuck",
     S1_T1: "Complete",
@@ -361,7 +275,7 @@ const migrations = [
     id: 10,
     migration_ownerId: 2,
     migration_type: "PaaS",
-    os: "nothing",
+    os: null,
     app_name: "CRABB",
     status: "In-Progress",
     S1_T1: "Complete",
@@ -382,9 +296,9 @@ const migrations = [
   },
   {
     id: 11,
-    migration_ownerId: 2,
+    migration_ownerId: 6,
     migration_type: "IaaS",
-    os: "nothing",
+    os: null,
     app_name: "SIMPLE",
     status: "In-Progress",
     S1_T1: "Complete",
@@ -640,6 +554,11 @@ const migration_tasks = [
   },
 ];
 
+const operating_systems = [
+  { id: 1, os: "Windows" },
+  { id: 2, os: "Linux" },
+];
+
 const migration_types = [
   { id: 1, migration_type: "PaaS" },
   { id: 2, migration_type: "IaaS" },
@@ -648,7 +567,7 @@ const migration_types = [
 const newMigration = {
   id: null,
   ownerId: null,
-  typeId: null,
+  migrationTypeId: null,
   os: null,
   app_name: "",
   status: "Not-Started",
@@ -683,13 +602,11 @@ const newMigration = {
 
 // Using CommonJS style export so we can consume via Node (without using Babel-node)
 module.exports = {
-  newCourse,
   newMigration,
-  courses,
-  authors,
   members,
   migrations,
   migration_tasks,
   migration_stages,
   migration_types,
+  operating_systems,
 };
