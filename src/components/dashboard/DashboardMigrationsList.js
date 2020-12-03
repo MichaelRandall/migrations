@@ -22,30 +22,43 @@ class DashboardMigrationsList extends React.Component {
           switch (migration.status) {
             case "Not-Started":
               status = migration.status;
-              statusStyle = { color: "red" };
+              statusStyle = {
+                borderLeft: "solid red 8px",
+              };
               break;
             case "In-Progress":
               status = migration.status;
-              statusStyle = { color: "yellow" };
+              statusStyle = {
+                borderLeft: "solid yellow 8px",
+              };
               break;
             case "Complete":
               status = migration.status;
-              statusStyle = { color: "green" };
+              statusStyle = {
+                borderLeft: "solid green 8px",
+              };
               break;
             case "Stuck":
               status = migration.status;
-              statusStyle = { color: "red" };
+              statusStyle = {
+                borderLeft: "solid red 8px",
+              };
               break;
             default:
               status = "Not Started";
-              statusStyle = { color: "red" };
+              statusStyle = {
+                borderLeft: "solid red 8px",
+              };
           }
           return (
-            <div key={migration.app_name}>
+            <div
+              className="migration_items_holder"
+              key={migration.app_name}
+              style={statusStyle}
+            >
               <Link to={"/migration/" + migration.app_name}>
                 {migration.app_name}
               </Link>{" "}
-              <span style={statusStyle}>{status}</span>
             </div>
           );
         })}

@@ -53,7 +53,6 @@ DashboardMembers.propTypes = {
 
 // state.migrations uses js reduce function
 function mapStateToProps(state) {
-  debugger;
   return {
     members: state.members.map((member) => {
       return {

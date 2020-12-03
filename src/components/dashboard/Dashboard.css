@@ -18,20 +18,16 @@
   flex-wrap: wrap;
   align-content: flex-start;
   min-width: 260px;
-  background-color: #444;
-  /* border: solid 2px wheat; */
-  /* padding: 10px 10px 10px 10px; */
+  background-color: rgb(88, 85, 85);
 }
 
 .avatar_box {
   width: 56px;
   height: 60px;
-  /* padding-top: 4px; */
 }
 
 .avatar {
   border: solid 4px rgb(192, 19, 19);
-  /* border-radius: 50%; */
   width: 50px;
   display: block;
   margin: auto;
@@ -39,20 +35,36 @@
 
 /* Id of reference element that holds members' details - top-center of dashboard page */
 #members_details {
+  box-sizing: border-box;
   grid-column: 2;
   grid-row: 1;
-  background-color: #444;
+  background-color: rgb(88, 85, 85);
   color: wheat;
 }
 
 /* Holds migrations details - top-right of dashboard page */
 #migrations {
+  box-sizing: border-box;
   grid-column: 3;
   grid-row: 1;
-  color: #444;
+  background-color: rgb(88, 85, 85);
+}
+
+.migration_items_holder {
+  box-sizing: border-box;
+  color: wheat;
+  padding-left: 6px;
+  margin-bottom: 6px;
 }
 
 /* Holds a variety of charts - bottom of dashboard page */
+#stats_holder {
+  grid-column: 1 / span 3;
+  grid-row: 2;
+  display: flex;
+  background-color: teal;
+}
+
 #stats {
   display: flex;
 }

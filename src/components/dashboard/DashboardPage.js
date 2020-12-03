@@ -1,6 +1,7 @@
 import React from "react";
 import DashboardMigrations from "../dashboard/DashboardMigrations";
 import DashboardMembers from "../dashboard/DashboardMembers";
+import DashboardStatus from "../dashboard/DashboardStatus";
 
 import "./Dashboard.css";
 
@@ -22,21 +23,18 @@ const DashboardPage = () => (
       <div id="migrations" className="layout_section">
         <DashboardMigrations />
       </div>
-      <div id="stats-left" className="layout_section">
-        {/* <div className="stats">stat</div>
-        <div className="stats">stat</div>
-        <div className="stats">stat</div> */}
+      <div id="stats_holder">
+        <DashboardStatus />
+      </div>
+      {/* <div id="stats-left" className="layout_section">
+        <DashboardStatus />
       </div>
       <div id="stats-center" className="layout_section">
-        {/* <div className="stats">stat</div>
-        <div className="stats">stat</div>
-        <div className="stats">stat</div> */}
+        <DashboardStatus />
       </div>
       <div id="stats-right" className="layout_section">
-        {/* <div className="stats">stat</div>
-        <div className="stats">stat</div>
-        <div className="stats">stat</div> */}
-      </div>
+        <DashboardStatus />
+      </div> */}
     </div>
   </>
 );
