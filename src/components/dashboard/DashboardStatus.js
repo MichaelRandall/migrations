@@ -5,9 +5,10 @@ import * as migrationActions from "../../redux/actions/migrationActions";
 import PropTypes from "prop-types";
 // import LineChart from "./LineChart";
 import BarChart from "./BarChart";
-import _ from "lodash";
 
 function DashboardStatus({ migrations, members, loadMembers, loadMigrations }) {
+  console.log("Dashboard");
+  console.log(typeof migrations);
   useEffect(() => {
     if (migrations.length === 0) {
       loadMigrations().catch((error) => {
@@ -22,19 +23,25 @@ function DashboardStatus({ migrations, members, loadMembers, loadMigrations }) {
     }
   }, []);
 
-  return (
-    //   <MigrationsPerUser />
-    //   <MigrationStateByUser />
-    //   <MigrationForm
-    //   migration={migration}
-    //   errors={errors}
-    //   members={members}
-    //   onChange={handleChange}
-    //   onSave={handleSave}
-    // />
+  const groupdStatusz = migrations.reduce((p, c) => {
+    var status = c.status;
+    if (!p.hasOwnProperty(status)) {
+      p[status] = 0;
+    }
+    p[status]++;
+    return p;
+  }, {});
 
-    <BarChart migrations={migrations} />
-  );
+  const groupdMembersz = migrations.reduce((p, c) => {
+    var owner = c.migration_ownerId;
+    if (!p.hasOwnProperty(owner)) {
+      p[owner] = 0;
+    }
+    p[owner]++;
+    return p;
+  }, {});
+
+  return <BarChart migrations={groupdMembersz} />;
 }
 
 DashboardStatus.propTypes = {

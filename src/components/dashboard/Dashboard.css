@@ -63,17 +63,41 @@
   grid-column: 1 / span 3;
   grid-row: 2;
   display: flex;
-  background-color: rgb(88, 85, 85);
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  /* align-items: flex-start; */
+  /* background-color: rgb(88, 85, 85); */
   padding: 10px;
+  color: rgb(189, 179, 245);
 }
 
-#stats {
+.stat_box {
+  box-sizing: border-box;
+  height: 200px;
+  background-color: turquoise;
+  border: solid 1px orange;
+  padding: 8px;
+  margin-right: 10px;
+}
+
+svg {
+  /* border: solid 1px orangered; */
+  background-color: orchid;
+  max-width: 240px;
+  height: 180px;
+  color: wheat;
+}
+svg rect {
+  fill: orange;
+}
+
+/* #stats {
   display: flex;
-}
+} */
 
-.stats_holder {
+/* .stats_holder {
   width: 200px;
-}
+} */
 
 /* #stats-left {
   grid-column: 1;
