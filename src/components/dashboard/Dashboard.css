@@ -59,10 +59,12 @@
 
 /* Holds a variety of charts - bottom of dashboard page */
 #stats_holder {
+  box-sizing: border-box;
   grid-column: 1 / span 3;
   grid-row: 2;
   display: flex;
-  background-color: teal;
+  background-color: rgb(88, 85, 85);
+  padding: 10px;
 }
 
 #stats {
@@ -73,7 +75,7 @@
   width: 200px;
 }
 
-#stats-left {
+/* #stats-left {
   grid-column: 1;
   grid-row: 2;
   color: #444;
@@ -87,7 +89,7 @@
   grid-column: 3;
   grid-row: 2;
   color: #444;
-}
+} */
 
 .layout_section {
   background-color: wheat;

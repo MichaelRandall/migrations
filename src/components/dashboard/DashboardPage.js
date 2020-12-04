@@ -18,7 +18,7 @@ const DashboardPage = () => (
         <DashboardMembers />
       </div>
       <div id="members_details" className="layout_section">
-        Details + more to come
+        Member Details
       </div>
       <div id="migrations" className="layout_section">
         <DashboardMigrations />

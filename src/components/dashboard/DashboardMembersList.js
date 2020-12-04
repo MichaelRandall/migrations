@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const DashboardMembersList = ({
   members,
   handleMemberEnter,
-  handleMemberLeave,
+  // handleMemberLeave,
 }) => {
   return (
     <>
@@ -18,10 +18,10 @@ const DashboardMembersList = ({
               event.preventDefault();
               handleMemberEnter(member);
             }}
-            onMouseLeave={(event) => {
-              event.preventDefault();
-              handleMemberLeave(member);
-            }}
+            // onMouseLeave={(event) => {
+            //   event.preventDefault();
+            //   handleMemberLeave(member);
+            // }}
           >
             <img className="avatar" src={member.pic} alt={member.sname} />
           </div>
@@ -34,7 +34,7 @@ const DashboardMembersList = ({
 DashboardMembersList.propTypes = {
   members: PropTypes.array.isRequired,
   handleMemberEnter: PropTypes.func.isRequired,
-  handleMemberLeave: PropTypes.func.isRequired,
+  // handleMemberLeave: PropTypes.func.isRequired,
 };
 
 export default DashboardMembersList;
