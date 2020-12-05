@@ -13,3 +13,5 @@ const reduxMethods = {
     );
   }
 };
+
+export default reduxMethods;

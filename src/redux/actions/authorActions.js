@@ -5,12 +5,12 @@ import {
   getAuthorApi,
   getAuthorsApi,
   updateAuthorApi
-} from "../../api/memberApi";
+} from "../../api/authorApi";
 
 export function createAuthorAction(props) {
   return dispatch => {
     return createAuthorApi(props).then(details => {
-      dispatch({ details, type: types.CREATE_MIGRATION_SUCCESS });
+      dispatch({ details, type: types.CREATE_AUTHOR_SUCCESS });
     });
   };
 }

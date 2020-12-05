@@ -10,7 +10,7 @@ import {
 export function createMemberAction(props) {
   return dispatch => {
     return createMemberApi(props).then(details => {
-      dispatch({ details, type: types.CREATE_MIGRATION_SUCCESS });
+      dispatch({ details, type: types.CREATE_MEMBER_SUCCESS });
     });
   };
 }

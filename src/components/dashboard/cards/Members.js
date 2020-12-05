@@ -8,13 +8,13 @@ import Popover from "react-bootstrap/Popover";
 //Redux
 import { connect } from "react-redux";
 import { getMembersAction } from "../../../redux/actions/memberActions";
-import { getMigrationAction } from "../../../redux/actions/migrationActions";
+import { getMigrationsAction } from "../../../redux/actions/migrationActions";
 
-function Members({ getMembersAction, getMigrationAction, members }) {
+function Members({ getMembersAction, getMigrationsAction, members }) {
   //Step 1. Startup Actions
   useEffect(() => {
     getMembersAction();
-    getMigrationAction();
+    getMigrationsAction();
   }, []);
 
   return members.map((props, i) => (
@@ -62,7 +62,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   getMembersAction,
-  getMigrationAction
+  getMigrationsAction
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Members);

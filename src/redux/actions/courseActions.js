@@ -10,7 +10,7 @@ import {
 export function createCourseAction(props) {
   return dispatch => {
     return createCourseApi(props).then(details => {
-      dispatch({ details, type: types.CREATE_MIGRATION_SUCCESS });
+      dispatch({ details, type: types.CREATE_COURSE_SUCCESS });
     });
   };
 }
