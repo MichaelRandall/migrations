@@ -42,7 +42,7 @@ function Status({ migrations, members }) {
       <Col>
         <Card className="flex-center" ref={cardRef}>
           <Card.Body style={{ minHeight: 300 }}>
-            <Card.Title>Project by Status</Card.Title>
+            <Card.Title>Migrations by Status</Card.Title>
             <Column
               height={height}
               labels={Object.keys(byStatus)}
@@ -54,7 +54,7 @@ function Status({ migrations, members }) {
       <Col>
         <Card className="flex-center">
           <Card.Body style={{ minHeight: 300 }}>
-            <Card.Title>Status by Member</Card.Title>
+            <Card.Title>Migrations by Member</Card.Title>
             <Column
               height={height}
               labels={Object.keys(byMember)}
