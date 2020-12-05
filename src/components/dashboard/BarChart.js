@@ -7,13 +7,19 @@ import {
   scaleLinear,
   scaleBand,
   group,
-  min,
-  max,
 } from "d3";
+import { isArray } from "lodash";
 
 const BarChart = (migrations) => {
-  // const [data, setData] = useState([0, 1, 2, 3, 4]);
-  const [data, setData] = useState([migrations]);
+  // convert object to an array of object
+  const migrationsArray = Object.keys(migrations).map((i) => migrations[i]);
+  // const migrationsArray = Object.keys(migrations).map((i) =>
+  //   console.log(migrations[i])
+  // );
+  // console.log(migrationsArray);
+
+  const [data, setData] = useState([0, 10, 20, 30, 40]);
+  const [data1, setData1] = useState({ migrations });
   const svgRef = useRef();
 
   useEffect(() => {

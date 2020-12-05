@@ -9,6 +9,7 @@ import BarChart from "./BarChart";
 function DashboardStatus({ migrations, members, loadMembers, loadMigrations }) {
   console.log("Dashboard");
   console.log(typeof migrations);
+
   useEffect(() => {
     if (migrations.length === 0) {
       loadMigrations().catch((error) => {
@@ -21,7 +22,7 @@ function DashboardStatus({ migrations, members, loadMembers, loadMigrations }) {
         alert("Loading members failed" + error);
       });
     }
-  }, []);
+  }, [migrations]);
 
   const groupdStatusz = migrations.reduce((p, c) => {
     var status = c.status;
