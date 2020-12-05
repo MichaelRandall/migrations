@@ -1,22 +1,23 @@
-import { handleResponse, handleError } from "./apiUtils";
-const baseUrl = process.env.API_URL + "/migrations/";
+import axios from "axios";
 
-export function getMigrations() {
-  return fetch(baseUrl).then(handleResponse).catch(handleError);
+//CRUD Operations
+export function createMigrationApi(data) {
+  return axios.put("/migration", { data });
 }
 
-export function saveMigration(migration) {
-  return fetch(baseUrl + (migration.id || ""), {
-    method: migration.id ? "PUT" : "POST", // POST for create, PUT to update when id already exists.
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify(migration),
-  })
-    .then(handleResponse)
-    .catch(handleError);
+export function deleteMigrationApi(data) {
+  return axios.delete("/migration", { data });
 }
 
-// export function deleteCourse(courseId) {
-//   return fetch(baseUrl + courseId, { method: "DELETE" })
-//     .then(handleResponse)
-//     .catch(handleError);
-// }
+export function getMigrationApi(params) {
+  return axios.get("/migration", { params });
+}
+
+export function updateMigrationApi(data) {
+  return axios.post("/migration", { data });
+}
+
+//Query | Search Operation
+export function getMigrationsApi(params) {
+  return axios.get("/migrations", { params });
+}

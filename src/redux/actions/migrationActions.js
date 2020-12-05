@@ -1,53 +1,54 @@
-import * as type from "./actionTypes";
-import * as migrationApi from "../../api/migrationApi";
+import * as types from "./actionTypes";
+import {
+  createMigrationApi,
+  deleteMigrationApi,
+  getMigrationApi,
+  getMigrationsApi,
+  updateMigrationApi
+} from "../../api/migrationApi";
 
-//example using thunk - base function return signature
-//thunk middleware passes dispatch as an argument to the thunk
-//inner function gets the dispatch as an argument
-// export function loadMigrations() {
-//     return function(dispatch){
-
-//     }
-// }
-
-//loadMigrationsSuccess action
-export function loadMigrationSuccess(migrations) {
-  return { type: type.LOAD_MIGRATIONS_SUCCESS, migrations: migrations };
-}
-
-export function createMigrationSuccess(migration) {
-  return { type: type.CREATE_MIGRATION_SUCCESS, migration: migration };
-}
-
-export function updateMigrationSuccess(migration) {
-  return { type: type.UPDATE_MIGRATION_SUCCESS, migration: migration };
-}
-
-// this is the thunk inside thunk return migrationApi, calls to getMigrations
-export function loadMigrations() {
-  return function (dispatch) {
-    return migrationApi
-      .getMigrations()
-      .then((migrations) => {
-        dispatch(loadMigrationSuccess(migrations));
-      })
-      .catch((error) => {
-        throw error;
-      });
+export function createMigrationAction(props) {
+  return dispatch => {
+    return createMigrationApi(props).then(details => {
+      dispatch({ details, type: types.CREATE_MIGRATION_SUCCESS });
+    });
   };
 }
 
-export function saveMigration(migration) {
-  return function (dispatch) {
-    return migrationApi
-      .saveMigration(migration)
-      .then((savedMigration) => {
-        migration.migration_id
-          ? dispatch(updateMigrationSuccess(savedMigration))
-          : dispatch(createMigrationSuccess(savedMigration));
-      })
-      .catch((error) => {
-        throw error;
-      });
+export function deleteMigrationAction(details) {
+  return dispatch => {
+    return deleteMigrationApi(details).then(() => {
+      dispatch({ details, type: types.DELETE_MIGRATION_SUCCESS });
+    });
+  };
+}
+
+export function getMigrationAction(props) {
+  return dispatch => {
+    return getMigrationApi(props).then(details => {
+      dispatch({ details, type: types.GET_MIGRATION_SUCCESS });
+    });
+  };
+}
+
+export function getMigrationsAction(query = {}) {
+  return dispatch => {
+    return getMigrationsApi(query).then(results => {
+      dispatch({ results, type: types.GET_MIGRATIONS_SUCCESS });
+    });
+  };
+}
+
+export function resetMigrationAction() {
+  return dispatch => {
+    dispatch({ type: types.RESET_MIGRATION_SUCCESS });
+  };
+}
+
+export function updateMigrationAction(props) {
+  return dispatch => {
+    return updateMigrationApi(props).then(details => {
+      dispatch({ details, type: types.UPDATE_MIGRATION_SUCCESS });
+    });
   };
 }

@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 
-import migrations from "./migrationReducer";
-import members from "./memberReducer";
+import app from "./appReducer";
+import member from "./memberReducer";
 
 const rootReducer = combineReducers({
-  migrations: migrations,
-  members: members,
+  app,
+  member
 });
 
 export default rootReducer;
