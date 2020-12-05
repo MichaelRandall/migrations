@@ -24,23 +24,7 @@ function DashboardStatus({ migrations, members, loadMembers, loadMigrations }) {
     }
   }, [migrations]);
 
-  const groupdStatusz = migrations.reduce((p, c) => {
-    var status = c.status;
-    if (!p.hasOwnProperty(status)) {
-      p[status] = 0;
-    }
-    p[status]++;
-    return p;
-  }, {});
-
-  const groupdMembersz = migrations.reduce((p, c) => {
-    var owner = c.migration_ownerId;
-    if (!p.hasOwnProperty(owner)) {
-      p[owner] = 0;
-    }
-    p[owner]++;
-    return p;
-  }, {});
+  const locomotive = migrations.map((migration) => )
 
   return <BarChart migrations={groupdMembersz} />;
 }
