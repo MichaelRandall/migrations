@@ -24,9 +24,9 @@ function DashboardStatus({ migrations, members, loadMembers, loadMigrations }) {
     }
   }, [migrations]);
 
-  const locomotive = migrations.map((migration) => )
+  
 
-  return <BarChart migrations={groupdMembersz} />;
+  return <BarChart />;
 }
 
 DashboardStatus.propTypes = {
