@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import {
   createMigrationAction,
   resetMigrationAction,
-  updateMigrationAction
+  updateMigrationAction,
 } from "../../../redux/actions/migrationActions";
 
 function MigrationForm({
@@ -17,7 +17,7 @@ function MigrationForm({
   members,
   migration,
   resetMigrationAction,
-  updateMigrationAction
+  updateMigrationAction,
 }) {
   const [error, setError] = useState(false);
   //Step 1. Reset migration on unmount
@@ -26,15 +26,16 @@ function MigrationForm({
   }, []);
 
   const actions = {
-    error: e => useState(e),
-    save: details => {
+    error: (e) => useState(e),
+    // save checks if details.id has a value and if does, upgrade else create
+    save: (details) => {
       console.log(details);
       let executionMethod = details.id
         ? updateMigrationAction
         : createMigrationAction;
 
       executionMethod({ ...migration, ...details });
-    }
+    },
   };
 
   return (
@@ -53,6 +54,7 @@ function MigrationForm({
         <Form.Label>Member</Form.Label>
         <Form.Control as="select" name="ownerId">
           {members.map((props, i) => (
+            // loop members each option gets member index as key with value of props.id and props.name
             <option key={`member-${i}`} value={props.id}>
               {props.name}
             </option>
@@ -69,14 +71,14 @@ function MigrationForm({
 function mapStateToProps(state) {
   return {
     members: state.member.data,
-    migration: state.app.migration
+    migration: state.app.migration,
   };
 }
 
 const mapDispatchToProps = {
   createMigrationAction,
   resetMigrationAction,
-  updateMigrationAction
+  updateMigrationAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MigrationForm);

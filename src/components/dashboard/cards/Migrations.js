@@ -19,27 +19,31 @@ function Migrations({ getMigrationsAction, migrations }) {
 
   return (
     <ListGroup>
-      <ListGroup.Item key="list-header-0">Migrations</ListGroup.Item>
-      {migrations.map((props, i) => (
-        <ListGroup.Item
-          key={`migration-${i}`}
-          style={{ borderLeft: migrationColorCode(props.status) }}
-        >
-          <Link to={`/migration/${props.app_name}`}>{props.app_name}</Link>
-        </ListGroup.Item>
-      ))}
+      <ListGroup.Item key="list-header-0">Current Migrations</ListGroup.Item>
+      {migrations.map((props, i) => {
+        if (props.status !== "Complete") {
+          return (
+            <ListGroup.Item
+              key={`migration-${i}`}
+              style={{ borderLeft: migrationColorCode(props.status) }}
+            >
+              <Link to={`/migration/${props.app_name}`}>{props.app_name}</Link>
+            </ListGroup.Item>
+          );
+        }
+      })}
     </ListGroup>
   );
 }
 
 function mapStateToProps(state) {
   return {
-    migrations: state.app.migrations
+    migrations: state.app.migrations,
   };
 }
 
 const mapDispatchToProps = {
-  getMigrationsAction
+  getMigrationsAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Migrations);
