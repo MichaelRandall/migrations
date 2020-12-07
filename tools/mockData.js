@@ -71,7 +71,7 @@ const migrations = [
     migration_type: "PaaS",
     os: null,
     app_name: "MOBB",
-    status: "Stuck",
+    status: "Blocked",
     S1_T1: "Complete",
     S1_T2: "Complete",
     S1_T3: "Complete",
@@ -85,7 +85,7 @@ const migrations = [
     S1_T11: "Complete",
     S2_T1: "Complete",
     S2_T2: "In-Progress",
-    S2_T3: "Stuck",
+    S2_T3: "Blocked",
     S2_T4: "In-Progress",
   },
   {
@@ -94,12 +94,12 @@ const migrations = [
     migration_type: "PaaS",
     os: null,
     app_name: "W3.SPA",
-    status: "Stuck",
+    status: "Blocked",
     S1_T1: "Complete",
     S1_T2: "In-Progress",
     S1_T3: "In-Progress",
     S1_T4: "In-Progress",
-    S1_T5: "Stuck",
+    S1_T5: "Blocked",
   },
   {
     id: 3,
@@ -183,7 +183,7 @@ const migrations = [
     migration_type: "IaaS",
     os: "Windows",
     app_name: "ERD.CIRP",
-    status: "Stuck",
+    status: "Blocked",
     S1_T1: "Complete",
     S1_T2: "Complete",
     S1_T3: "Complete",
@@ -201,8 +201,8 @@ const migrations = [
     S2_T4: "Complete",
     S2_T5: "Complete",
     S3_T1: "In-Progress",
-    S3_T2: "Stuck",
-    S3_T3: "Stuck",
+    S3_T2: "Blocked",
+    S3_T3: "Blocked",
     S3_T4: "In-Progress",
   },
   {
@@ -261,7 +261,7 @@ const migrations = [
     migration_type: "PaaS",
     os: null,
     app_name: "MOBBEY",
-    status: "Stuck",
+    status: "Blocked",
     S1_T1: "Complete",
     S1_T2: "Complete",
     S1_T3: "Complete",
@@ -275,7 +275,7 @@ const migrations = [
     S1_T11: "Complete",
     S2_T1: "Complete",
     S2_T2: "In-Progress",
-    S2_T3: "Stuck",
+    S2_T3: "Blocked",
     S2_T4: "In-Progress",
   },
   {
@@ -380,172 +380,488 @@ const migration_stages = [
   },
 ];
 
+const stages_tasks = [
+  {
+    stage_id: 1,
+    stage: "Engage customer",
+    tasks: [
+      {
+        id: 1,
+        stageId: 1,
+        name: "S1_T1",
+        task: "Create SSI ticket to track migration"},
+      {
+        id: 2,
+        stageId: 1,
+        name: "S1_T2",
+        task: "Kick off with customer",
+      },
+      {
+        id: 3,
+        stageId: 1,
+        name: "S1_T3",
+        task: "Complete the Application Service Document (ASD)",
+      },
+      {
+        id: 4,
+        stageId: 1,
+        name: "S1_T4",
+        task: "Request Public Affairs Office (PAO) approval email",
+      },
+      {
+        id: 5,
+        stageId: 1,
+        name: "S1_T5",
+        task: "Request Impact Level Assessment and Information Survey Type be completed",
+      }, 
+      {
+        id: 6,
+        stageId: 1,
+        name: "S1_T6",
+        task: "Request 508 scan compliance in a work order",
+      }, 
+      {
+        id: 7,
+        stageId: 1,
+        name: "S1_T7",
+        task: "Request HPFortify scan on site",
+      },
+      {
+        id: 8,
+        stageId: 1,
+        name: "S1_T8",
+        task: "Create diagram",
+      },
+      {
+        id: 9,
+        stageId: 1,
+        name: "S1_T9",
+        task:
+          "Fill out the (VM request - IaaS) or (Webapp request - PaaS) form based on your project type",
+      }
+    ]
+  },
+  {
+    stage_id: 2,
+    stage: "Request approval",
+    tasks: [
+      {
+        id: 10,
+        stageId: 2,
+        name: "S2_T1",
+        task: "Request Cloud Service Program Management Office (CSPMO) approval",
+      },
+      {
+        id: 11,
+        stageId: 2,
+        name: "S2_T2",
+        task: "Create work order",
+      },
+      {
+        id: 12,
+        stageId: 2,
+        name: "S2_T3",
+        task: "Schedule meeting with engineering",
+      },
+      {
+        id: 13,
+        stageId: 2,
+        name: "S2_T4",
+        task: "Include diagram and request worksheet",
+      },  
+    ] 
+  },
+  {
+    stage_id: 3,
+    stage: "Request resources",
+    tasks:[
+      {
+        id: 14,
+        stageId: 3,
+        name: "S3_T1",
+        task: "Request resources provisioned ('VM', App server, database, webapp)",
+      },
+      {
+        id: 15,
+        stageId: 3,
+        name: "S3_T2",
+        task: "Verify Windows/RHEL VM configuration",
+      },
+      {
+        id: 16,
+        stageId: 3,
+        name: "S3_T3",
+        task: "Confirm server in correct vnet/subnet",
+      },
+      {
+        id: 17,
+        stageId: 3,
+        name: "S3_T4",
+        task: "Confirm tags are accurate",
+      },
+      {
+        id: 18,
+        stageId: 3,
+        name: "S3_T5",
+        task: "Confirm/Request our group (- ????) is added to access server",
+      },
+      {
+        id: 19,
+        stageId: 3,
+        name: "S3_T6",
+        task: "Confirm/Test login access to the server using RDP/SSH",
+      },
+      {
+        id: 20,
+        stageId: 3,
+        name: "S3_T7",
+        task: "Confirm/Test access to server using SFTP",
+      },
+      {
+        id: 21,
+        stageId: 3,
+        name: "S3_T8",
+        task: "Confirm that app storage is mounted",
+      },
+      {
+        id: 22,
+        stageId: 3,
+        name: "S3_T9",
+        task: "Update ASD with server information",
+      },
+      {
+        id: 23,
+        stageId: 3,
+        name: "S3_T10",
+        task: "Update Azure IL4 server spreadsheet",
+      },
+      {
+        id: 24,
+        stageId: 3,
+        name: "S3_T11",
+        task: "Request HPFortify scan on new server",
+      },
+    ]
+  },
+  {
+    stage_id: 4,
+    stage: "Configure resources",
+    tasks:[
+      {
+        id: 25,
+        stageId: 4,
+        name: "S4_T1",
+        task: "Configure database",
+      },
+      {
+        id: 26,
+        stageId: 4,
+        name: "S4_T2",
+        task: "Configure staging server",
+      },
+      {
+        id: 27,
+        stageId: 4,
+        name: "S4_T3",
+        task: "Configure website",
+      },
+      {
+        id: 28,
+        stageId: 4,
+        name: "S4_T4",
+        task: "Confirm AD Group or LDAP Role is created (name of group or role)",
+      },
+      {
+        id: 29,
+        stageId: 4,
+        name: "S4_T5",
+        task: "Create IIS config doc",
+      },
+      {
+        id: 30,
+        stageId: 4,
+        name: "S4_T6",
+        task: "Configure app server",
+      },
+      {
+        id: 31,
+        stageId: 4,
+        name: "S4_T7",
+        task: "Update ASD with applicable information",
+      },
+    ]
+  },
+  {
+    stage_id: 5,
+    stage: "Testing",
+    tasks:[
+      {
+        id: 32,
+        stageId: 5,
+        name: "S5_T1",
+        task: "Request customer test app/site",
+      },
+      {
+        id: 32,
+        stageId: 5,
+        name: "S5_T2",
+        task: "Notify customer that app/site configured",
+        notes:
+          "Isn't the site already configured since in previous we requested they test?",
+      },
+      {
+        id: 33,
+        stageId: 5,
+        name: "S5_T3",
+        task: "Verify that customer can access the site",
+        notes: "How is test app/site different from access site?",
+      },
+      {
+        id: 34,
+        stageId: 5,
+        name: "S5_T4",
+        task: "Verify that customer can WinSCP to server and upload files",
+      },
+      {
+        id: 35,
+        stageId: 5,
+        name: "S5_T5",
+        task: "Verify that automation of file transer is working for customer",
+        notes: "Does this apply to only PaaS with it's staging?",
+      },
+    ]
+  },
+  {
+    stage_id: 6,
+    stage: "Cutover",
+    tasks:[
+      {
+        id: 36,
+        stageId: 6,
+        name: "S6_T1",
+        task: "DNS update",
+      },
+    ]
+  },
+  {
+    stage_id: 7,
+    stage: "Closeout",
+    tasks:[
+      {
+        id: 37,
+        stageId: 7,
+        name: "S7_T1",
+        task: "Email service owner and operations team",
+      },
+      {
+        id: 38,
+        stageId: 7,
+        name: "S7_T2",
+        task: "Update the all sites (Core) list",
+      },
+    ]
+  }
+]
+
 const migration_tasks = [
   {
     id: 1,
     stageId: 1,
+    name: "S1_T1",
     task: "Create SSI ticket to track migration",
   },
   {
     id: 2,
     stageId: 1,
+    name: "S1_T2",
     task: "Kick off with customer",
   },
   {
     id: 3,
     stageId: 1,
+    name: "S1_T3",
     task: "Complete the Application Service Document (ASD)",
   },
   {
     id: 4,
     stageId: 1,
+    name: "S1_T4",
     task: "Request Public Affairs Office (PAO) approval email",
   },
   {
     id: 5,
     stageId: 1,
+    name: "S1_T5",
     task:
       "Request Impact Level Assessment and Information Survey Type be completed",
   },
   {
     id: 6,
     stageId: 1,
+    name: "S1_T6",
     task: "Request 508 scan compliance in a work order",
   },
   {
     id: 7,
     stageId: 1,
+    name: "S1_T7",
     task: "Request HPFortify scan on site",
   },
   {
     id: 8,
     stageId: 1,
+    name: "S1_T8",
     task: "Create diagram",
   },
   {
     id: 9,
     stageId: 1,
+    name: "S1_T9",
     task:
       "Fill out the (VM request - IaaS) or (Webapp request - PaaS) form based on your project type",
   },
   {
     id: 10,
     stageId: 2,
+    name: "S2_T1",
     task: "Request Cloud Service Program Management Office (CSPMO) approval",
   },
   {
     id: 11,
     stageId: 2,
+    name: "S2_T2",
     task: "Create work order",
   },
   {
     id: 12,
     stageId: 2,
+    name: "S2_T3",
     task: "Schedule meeting with engineering",
   },
   {
     id: 13,
     stageId: 2,
+    name: "S2_T4",
     task: "Include diagram and request worksheet",
   },
   {
     id: 14,
     stageId: 3,
+    name: "S3_T1",
     task: "Request resources provisioned ('VM', App server, database, webapp)",
   },
   {
     id: 15,
     stageId: 3,
+    name: "S3_T2",
     task: "Verify Windows/RHEL VM configuration",
   },
   {
     id: 16,
     stageId: 3,
+    name: "S3_T3",
     task: "Confirm server in correct vnet/subnet",
   },
   {
     id: 17,
     stageId: 3,
+    name: "S3_T4",
     task: "Confirm tags are accurate",
   },
   {
     id: 18,
     stageId: 3,
+    name: "S3_T5",
     task: "Confirm/Request our group (- ????) is added to access server",
   },
   {
     id: 19,
     stageId: 3,
+    name: "S3_T6",
     task: "Confirm/Test login access to the server using RDP/SSH",
   },
   {
     id: 20,
     stageId: 3,
+    name: "S3_T7",
     task: "Confirm/Test access to server using SFTP",
   },
   {
     id: 21,
     stageId: 3,
+    name: "S3_T8",
     task: "Confirm that app storage is mounted",
   },
   {
     id: 22,
     stageId: 3,
+    name: "S3_T9",
     task: "Update ASD with server information",
   },
   {
     id: 23,
     stageId: 3,
+    name: "S3_T10",
     task: "Update Azure IL4 server spreadsheet",
   },
   {
     id: 24,
     stageId: 3,
+    name: "S3_T11",
     task: "Request HPFortify scan on new server",
   },
   {
     id: 25,
     stageId: 4,
+    name: "S4_T1",
     task: "Configure database",
   },
   {
     id: 26,
     stageId: 4,
+    name: "S4_T2",
     task: "Configure staging server",
   },
   {
     id: 27,
     stageId: 4,
+    name: "S4_T3",
     task: "Configure website",
   },
   {
     id: 28,
     stageId: 4,
+    name: "S4_T4",
     task: "Confirm AD Group or LDAP Role is created (name of group or role)",
   },
   {
     id: 29,
     stageId: 4,
+    name: "S4_T5",
     task: "Create IIS config doc",
   },
   {
     id: 30,
     stageId: 4,
+    name: "S4_T6",
     task: "Configure app server",
   },
   {
     id: 31,
     stageId: 4,
+    name: "S4_T7",
     task: "Update ASD with applicable information",
   },
   {
     id: 32,
     stageId: 5,
+    name: "S5_T1",
     task: "Request customer test app/site",
   },
   {
     id: 32,
     stageId: 5,
+    name: "S5_T2",
     task: "Notify customer that app/site configured",
     notes:
       "Isn't the site already configured since in previous we requested they test?",
@@ -553,33 +869,39 @@ const migration_tasks = [
   {
     id: 33,
     stageId: 5,
+    name: "S5_T3",
     task: "Verify that customer can access the site",
     notes: "How is test app/site different from access site?",
   },
   {
     id: 34,
     stageId: 5,
+    name: "S5_T4",
     task: "Verify that customer can WinSCP to server and upload files",
   },
   {
     id: 35,
     stageId: 5,
+    name: "S5_T5",
     task: "Verify that automation of file transer is working for customer",
     notes: "Does this apply to only PaaS with it's staging?",
   },
   {
     id: 36,
     stageId: 6,
+    name: "S6_T1",
     task: "DNS update",
   },
   {
     id: 37,
     stageId: 7,
+    name: "S7_T1",
     task: "Email service owner and operations team",
   },
   {
     id: 38,
     stageId: 7,
+    name: "S7_T2",
     task: "Update the all sites (Core) list",
   },
 ];
@@ -639,4 +961,5 @@ module.exports = {
   migration_stages,
   migration_types,
   operating_systems,
+  stages_tasks
 };
