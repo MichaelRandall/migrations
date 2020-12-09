@@ -5,18 +5,18 @@ import {
   migration_tasks,
   migration_stages,
   migration_types,
-  operating_systems
+  operating_systems,
 } from "../../../tools/mockData";
 
 export default {
   app: {
-    course: {},
-    courses: [],
+    // course: {},
+    // courses: [],
     migration: newMigration || {},
-    migrations: migrations || []
+    migrations: migrations || [],
   },
   member: {
     details: {},
-    data: members || []
-  }
+    data: members || [],
+  },
 };

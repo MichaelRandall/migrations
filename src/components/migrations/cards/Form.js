@@ -25,17 +25,20 @@ function MigrationForm({
     return () => resetMigrationAction();
   }, []);
 
+  // const actions = {
+  //   error: (e) => useState(e),
+  //   // save checks if details.id has a value and if does, upgrade else create
+  //   save: (details) => {
+  //     let executionMethod = details.id
+  //       ? updateMigrationAction
+  //       : createMigrationAction;
+  //     console.log(executionMethod);
+  //     executionMethod({ ...migration, ...details });
+  //   },
+  // };
   const actions = {
     error: (e) => useState(e),
-    // save checks if details.id has a value and if does, upgrade else create
-    save: (details) => {
-      console.log(details);
-      let executionMethod = details.id
-        ? updateMigrationAction
-        : createMigrationAction;
-
-      executionMethod({ ...migration, ...details });
-    },
+    save: createMigrationAction,
   };
 
   return (

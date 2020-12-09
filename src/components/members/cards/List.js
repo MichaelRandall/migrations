@@ -1,44 +1,58 @@
 import React, { useEffect } from "react";
 
-//Vendor
-import Image from "react-bootstrap/Image";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Popover from "react-bootstrap/Popover";
-
 //Redux
 import { connect } from "react-redux";
 import { getMembersAction } from "../../../redux/actions/memberActions";
 
-function MembersList({ getMembersAction, members }) {
+function MembersList({ getMembersAction, data }) {
   useEffect(() => {
     getMembersAction();
   }, []);
 
-  return members.map((props, i) => (
-    <OverlayTrigger
-      key={`user-avatar-${i}`}
-      overlay={
-        <Popover>
-          <Popover.Title>{props.sname}</Popover.Title>
-          <Popover.Content>Something</Popover.Content>
-        </Popover>
-      }
-      trigger="hover"
-    >
-      <Image
-        className="avatar"
-        src={props.pic}
-        alt={props.sname}
-        roundedCircle
-      />
-    </OverlayTrigger>
-  ));
+  return (
+    <table className="table table_format">
+      <thead>
+        <tr>
+          <th>Member</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((data1) => {
+          return (
+            <tr key={data1.id}>
+              <td>{data1.name}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+
+  // return members.map((member, i) => (
+  //   <OverlayTrigger
+  //     key={`user-avatar-${i}`}
+  //     overlay={
+  //       <Popover>
+  //         <Popover.Title>{member.sname}</Popover.Title>
+  //         <Popover.Content>Something</Popover.Content>
+  //       </Popover>
+  //     }
+  //     trigger="hover"
+  //   >
+  //     <Image
+  //       className="avatar"
+  //       src={member.pic}
+  //       alt={member.sname}
+  //       roundedCircle
+  //     />
+  //   </OverlayTrigger>
+  // ));
 }
 
 // state.migrations uses js reduce function
-function mapStateToProps({ members }) {
+function mapStateToProps(state) {
   return {
-    members: members,
+    members: state.app.data,
   };
 }
 
