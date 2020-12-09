@@ -10,8 +10,6 @@ import {
 
 export default {
   app: {
-    // course: {},
-    // courses: [],
     migration: newMigration || {},
     migrations: migrations || [],
   },

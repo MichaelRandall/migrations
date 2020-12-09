@@ -13,7 +13,7 @@ const members = [
     name: "Mike",
     sname: "M Randall",
     initials: "M.R.",
-    alias: "Hulk",
+    alias: "The Hulk",
     pic: "/src/images/Hulk.svg",
     focus: false,
   },
@@ -22,7 +22,7 @@ const members = [
     name: "Jean",
     sname: "J Lamboy",
     initials: "J.L.",
-    alias: "Jean",
+    alias: "Jean Grey",
     pic: "/src/images/Jean.svg",
     focus: false,
   },
@@ -58,7 +58,7 @@ const members = [
     name: "Lee",
     sname: "L Oxley",
     initials: "L.O.",
-    alias: "Strange",
+    alias: "Dr. Strange",
     pic: "/src/images/Strange.svg",
     focus: false,
   },
@@ -389,7 +389,8 @@ const stages_tasks = [
         id: 1,
         stageId: 1,
         name: "S1_T1",
-        task: "Create SSI ticket to track migration"},
+        task: "Create SSI ticket to track migration",
+      },
       {
         id: 2,
         stageId: 1,
@@ -412,14 +413,15 @@ const stages_tasks = [
         id: 5,
         stageId: 1,
         name: "S1_T5",
-        task: "Request Impact Level Assessment and Information Survey Type be completed",
-      }, 
+        task:
+          "Request Impact Level Assessment and Information Survey Type be completed",
+      },
       {
         id: 6,
         stageId: 1,
         name: "S1_T6",
         task: "Request 508 scan compliance in a work order",
-      }, 
+      },
       {
         id: 7,
         stageId: 1,
@@ -438,8 +440,8 @@ const stages_tasks = [
         name: "S1_T9",
         task:
           "Fill out the (VM request - IaaS) or (Webapp request - PaaS) form based on your project type",
-      }
-    ]
+      },
+    ],
   },
   {
     stage_id: 2,
@@ -449,7 +451,8 @@ const stages_tasks = [
         id: 10,
         stageId: 2,
         name: "S2_T1",
-        task: "Request Cloud Service Program Management Office (CSPMO) approval",
+        task:
+          "Request Cloud Service Program Management Office (CSPMO) approval",
       },
       {
         id: 11,
@@ -468,18 +471,19 @@ const stages_tasks = [
         stageId: 2,
         name: "S2_T4",
         task: "Include diagram and request worksheet",
-      },  
-    ] 
+      },
+    ],
   },
   {
     stage_id: 3,
     stage: "Request resources",
-    tasks:[
+    tasks: [
       {
         id: 14,
         stageId: 3,
         name: "S3_T1",
-        task: "Request resources provisioned ('VM', App server, database, webapp)",
+        task:
+          "Request resources provisioned ('VM', App server, database, webapp)",
       },
       {
         id: 15,
@@ -541,12 +545,12 @@ const stages_tasks = [
         name: "S3_T11",
         task: "Request HPFortify scan on new server",
       },
-    ]
+    ],
   },
   {
     stage_id: 4,
     stage: "Configure resources",
-    tasks:[
+    tasks: [
       {
         id: 25,
         stageId: 4,
@@ -569,7 +573,8 @@ const stages_tasks = [
         id: 28,
         stageId: 4,
         name: "S4_T4",
-        task: "Confirm AD Group or LDAP Role is created (name of group or role)",
+        task:
+          "Confirm AD Group or LDAP Role is created (name of group or role)",
       },
       {
         id: 29,
@@ -589,12 +594,12 @@ const stages_tasks = [
         name: "S4_T7",
         task: "Update ASD with applicable information",
       },
-    ]
+    ],
   },
   {
     stage_id: 5,
     stage: "Testing",
-    tasks:[
+    tasks: [
       {
         id: 32,
         stageId: 5,
@@ -629,24 +634,24 @@ const stages_tasks = [
         task: "Verify that automation of file transer is working for customer",
         notes: "Does this apply to only PaaS with it's staging?",
       },
-    ]
+    ],
   },
   {
     stage_id: 6,
     stage: "Cutover",
-    tasks:[
+    tasks: [
       {
         id: 36,
         stageId: 6,
         name: "S6_T1",
         task: "DNS update",
       },
-    ]
+    ],
   },
   {
     stage_id: 7,
     stage: "Closeout",
-    tasks:[
+    tasks: [
       {
         id: 37,
         stageId: 7,
@@ -659,9 +664,9 @@ const stages_tasks = [
         name: "S7_T2",
         task: "Update the all sites (Core) list",
       },
-    ]
-  }
-]
+    ],
+  },
+];
 
 const migration_tasks = [
   {
@@ -961,5 +966,5 @@ module.exports = {
   migration_stages,
   migration_types,
   operating_systems,
-  stages_tasks
+  stages_tasks,
 };

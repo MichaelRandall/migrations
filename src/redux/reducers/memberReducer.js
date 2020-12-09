@@ -39,7 +39,7 @@ function details(state = initialState.member.details, action) {
 
 const member = combineReducers({
   data,
-  details
+  details,
 });
 
 export default member;
