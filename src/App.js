@@ -30,8 +30,8 @@ function App() {
         <Route exact path="/" component={Dashboard} />
         <Route path="/about" component={About} />
         <Route path="/members" component={Members} />
-        <Route path="/migrations" component={Migrations} />
         <Route path="/migration/:name" component={Management} />
+        <Route path="/migrations" component={Migrations} />
         <Route path="/status" component={Status} />
         <Route component={PageNotFound} />
       </Switch>

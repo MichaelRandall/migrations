@@ -29,13 +29,17 @@ function Status({ migrations, members }) {
   }, {});
 
   const byMember = migrations.reduce((p, c) => {
-    let owner = members.find(m => m.id === c.migration_ownerId);
+    let owner = members.find((m) => m.id === c.migration_ownerId);
     if (!p.hasOwnProperty(owner.sname)) p[owner.sname] = 0;
     p[owner.sname]++;
     return p;
   }, {});
 
-  console.log(height);
+  const byStatusByMember = () => {
+    return "acorns";
+  };
+
+  // console.log(height);
 
   return (
     <Row>
@@ -70,7 +74,7 @@ function Status({ migrations, members }) {
 function mapStateToProps(state) {
   return {
     migrations: state.app.migrations,
-    members: state.member.data
+    members: state.member.data,
   };
 }
 

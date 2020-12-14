@@ -25,20 +25,22 @@ function MigrationForm({
     return () => resetMigrationAction();
   }, []);
 
-  // const actions = {
-  //   error: (e) => useState(e),
-  //   // save checks if details.id has a value and if does, upgrade else create
-  //   save: (details) => {
-  //     let executionMethod = details.id
-  //       ? updateMigrationAction
-  //       : createMigrationAction;
-  //     console.log(executionMethod);
-  //     executionMethod({ ...migration, ...details });
-  //   },
-  // };
+  // actions used by the onSubmit event of the form
   const actions = {
-    error: (e) => useState(e),
-    save: createMigrationAction,
+    error: (e) => {
+      useState(e);
+    },
+    // Where are details coming from?
+    // Save checks if details.id has a value and if does, the executionMethod is set to updateMigrationAction
+    // If details.id is null or empty, the createMigrationAction is assigned to executionMethod
+    // Then the executionMethod (createMigrationActions) function is called with spread migration and spread details
+    // At this point, details should have values from the form in it????
+    save: (details) => {
+      let executionMethod = details.id
+        ? updateMigrationAction
+        : createMigrationAction;
+      executionMethod({ ...migration, ...details });
+    },
   };
 
   return (

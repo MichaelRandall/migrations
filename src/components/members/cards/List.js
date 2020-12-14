@@ -17,14 +17,17 @@ function MemberList({ members }) {
 
   return members.map((member, i) => (
     <OverlayTrigger
+      placement="right"
       key={`user-avatar-${i}`}
       overlay={
         <Popover>
-          <Popover.Title>{member.sname}</Popover.Title>
-          <Popover.Content>{member.alias}</Popover.Content>
+          <Popover.Title>Identity</Popover.Title>
+          <Popover.Content>
+            {member.sname}: {member.alias}
+          </Popover.Content>
         </Popover>
       }
-      trigger="hover"
+      trigger={["hover", "hover"]}
     >
       <Image
         className="avatar"

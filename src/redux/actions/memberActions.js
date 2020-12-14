@@ -23,7 +23,7 @@ export function deleteMemberAction(details) {
   };
 }
 
-// Should return, one
+// Should return one member
 export function getMemberAction(props) {
   return (dispatch) => {
     return getMemberApi(props).then((details) => {

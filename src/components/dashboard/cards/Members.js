@@ -29,7 +29,7 @@ function Members({ getMembersAction, getMigrationsAction, members }) {
           </Popover>
         }
         placement="right"
-        trigger="hover"
+        trigger={["hover", "hover"]}
       >
         <Image
           alt={props.sname}
@@ -48,21 +48,21 @@ function Members({ getMembersAction, getMigrationsAction, members }) {
 // state.migrations uses js reduce function
 function mapStateToProps(state) {
   return {
-    members: state.member.data.map(member => {
+    members: state.member.data.map((member) => {
       return {
         ...member,
         migrations: state.app.migrations.reduce(
           (a, b) => (b.migration_ownerId === member.id ? ++a : a),
           0
-        )
+        ),
       };
-    })
+    }),
   };
 }
 
 const mapDispatchToProps = {
   getMembersAction,
-  getMigrationsAction
+  getMigrationsAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Members);

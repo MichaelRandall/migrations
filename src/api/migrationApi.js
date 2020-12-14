@@ -1,6 +1,7 @@
 import axios from "axios";
 
 //CRUD Operations
+
 export function createMigrationApi(data) {
   return axios.put("/migration", { data });
 }
