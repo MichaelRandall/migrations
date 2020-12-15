@@ -21,7 +21,6 @@ function migration(state = initialState.app.migration, action) {
 }
 
 function migrations(state = initialState.app.migrations, action) {
-  debugger;
   switch (action.type) {
     case types.CREATE_MIGRATION_SUCCESS:
       return reduxMethods.addResource(state, action, "details");
@@ -40,7 +39,7 @@ function migrations(state = initialState.app.migrations, action) {
 
 const app = combineReducers({
   migration,
-  migrations,
+  migrations
 });
 
 export default app;

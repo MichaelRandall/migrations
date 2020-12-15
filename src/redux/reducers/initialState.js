@@ -1,20 +1,18 @@
-import {
-  newMigration,
-  members,
-  migrations,
-  migration_tasks,
-  migration_stages,
-  migration_types,
-  operating_systems,
-} from "../../../tools/mockData";
+import { newMigration, members, migrations } from "../../../tools/mockData";
 
 export default {
   app: {
     migration: newMigration || {},
-    migrations: migrations || [],
+    migrations: migrations || []
   },
   member: {
     details: {},
-    data: members || [],
+    data: members || []
   },
+  toggle: {
+    memberModal: false,
+    migrationModal: false,
+    stageModal: false,
+    taskModal: false
+  }
 };

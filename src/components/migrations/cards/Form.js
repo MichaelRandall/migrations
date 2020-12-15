@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import {
   createMigrationAction,
   resetMigrationAction,
-  updateMigrationAction,
+  updateMigrationAction
 } from "../../../redux/actions/migrationActions";
 
 function MigrationForm({
@@ -17,17 +17,24 @@ function MigrationForm({
   members,
   migration,
   resetMigrationAction,
-  updateMigrationAction,
+  updateMigrationAction
 }) {
   const [error, setError] = useState(false);
+  const [details, setDetails] = useState(migration || {});
+
   //Step 1. Reset migration on unmount
   useEffect(() => {
     return () => resetMigrationAction();
   }, []);
 
+  //Step 2. Override local state when new migration is passed.
+  useEffect(() => {
+    setDetails(migration);
+  }, [migration.id]);
+
   // actions used by the onSubmit event of the form
   const actions = {
-    error: (e) => {
+    error: e => {
       useState(e);
     },
     // Where are details coming from?
@@ -35,12 +42,15 @@ function MigrationForm({
     // If details.id is null or empty, the createMigrationAction is assigned to executionMethod
     // Then the executionMethod (createMigrationActions) function is called with spread migration and spread details
     // At this point, details should have values from the form in it????
-    save: (details) => {
+    save: () => {
       let executionMethod = details.id
         ? updateMigrationAction
         : createMigrationAction;
       executionMethod({ ...migration, ...details });
     },
+    update: ({ target }) => {
+      setDetails({ ...details, [target.name]: target.value });
+    }
   };
 
   return (
@@ -53,11 +63,15 @@ function MigrationForm({
       )}
       <Form.Group>
         <Form.Label>App Name</Form.Label>
-        <Form.Control name="app_name" placeholder="Something Simple..." />
+        <Form.Control
+          name="app_name"
+          onChange={actions.update}
+          placeholder="Something Simple..."
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Member</Form.Label>
-        <Form.Control as="select" name="ownerId">
+        <Form.Control as="select" name="ownerId" onChange={actions.update}>
           {members.map((props, i) => (
             // loop members each option gets member index as key with value of props.id and props.name
             <option key={`member-${i}`} value={props.id}>
@@ -76,14 +90,14 @@ function MigrationForm({
 function mapStateToProps(state) {
   return {
     members: state.member.data,
-    migration: state.app.migration,
+    migration: state.app.migration
   };
 }
 
 const mapDispatchToProps = {
   createMigrationAction,
   resetMigrationAction,
-  updateMigrationAction,
+  updateMigrationAction
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MigrationForm);
