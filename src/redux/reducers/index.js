@@ -1,13 +1,13 @@
 import { combineReducers } from "redux";
 
-import app from "./appReducer";
+import app from "./dashboardReducer";
 import member from "./memberReducer";
 import toggle from "./toggleReducer";
 
 const rootReducer = combineReducers({
   app,
   member,
-  toggle
+  toggle,
 });
 
 export default rootReducer;

@@ -36,7 +36,7 @@ function App() {
         <Route path="/status" component={Status} />
         <Route component={PageNotFound} />
       </Switch>
-      <Modals />
+      {/* <Modals /> */}
       <Footer />
     </Suspense>
   );

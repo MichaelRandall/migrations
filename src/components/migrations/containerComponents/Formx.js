@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import {
   createMigrationAction,
   resetMigrationAction,
-  updateMigrationAction
+  updateMigrationAction,
 } from "../../../redux/actions/migrationActions";
 
 function MigrationForm({
@@ -17,7 +17,7 @@ function MigrationForm({
   members,
   migration,
   resetMigrationAction,
-  updateMigrationAction
+  updateMigrationAction,
 }) {
   const [error, setError] = useState(false);
   const [details, setDetails] = useState(migration || {});
@@ -34,7 +34,7 @@ function MigrationForm({
 
   // actions used by the onSubmit event of the form
   const actions = {
-    error: e => {
+    error: (e) => {
       useState(e);
     },
     // Where are details coming from?
@@ -50,7 +50,7 @@ function MigrationForm({
     },
     update: ({ target }) => {
       setDetails({ ...details, [target.name]: target.value });
-    }
+    },
   };
 
   return (
@@ -90,14 +90,14 @@ function MigrationForm({
 function mapStateToProps(state) {
   return {
     members: state.member.data,
-    migration: state.app.migration
+    migration: state.app.migration,
   };
 }
 
 const mapDispatchToProps = {
   createMigrationAction,
   resetMigrationAction,
-  updateMigrationAction
+  updateMigrationAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MigrationForm);

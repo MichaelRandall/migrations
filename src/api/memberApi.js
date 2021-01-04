@@ -1,24 +1,24 @@
 import axios from "axios";
 
 //CRUD Operations
-export function createMemberApi(data) {
+export function createMember(data) {
   return axios.put("/member", { data });
 }
 
-export function deleteMemberApi(data) {
+export function deleteMember(data) {
   return axios.delete("/member", { data });
 }
 
 // get all or one
-export function getMemberApi(params) {
+export function getMember(params) {
   return axios.get("/member", { params });
 }
 
-export function updateMemberApi(data) {
+export function updateMember(data) {
   return axios.post("/member", { data });
 }
 
 //Query | Search Operation - gets one or all
-export function getMembersApi(params) {
+export function getMembers(params) {
   return axios.get("/members", { params });
 }

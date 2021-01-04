@@ -6,9 +6,11 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 //Custom Components
-const Migrations = React.lazy(() => import("../cards/Migrations"));
-const Members = React.lazy(() => import("../cards/Members"));
-const Status = React.lazy(() => import("../cards/Status"));
+const Migrations = React.lazy(() =>
+  import("../containerComponents/Migrations")
+);
+const Members = React.lazy(() => import("../containerComponents/Members"));
+const Status = React.lazy(() => import("../containerComponents/Status"));
 
 //Custom CSS
 import "./style.css";
@@ -22,16 +24,16 @@ const DashboardPage = () => (
     </Row>
     <Row>
       <Col xs={12} sm={6}>
-        <Members />
+        <Migrations />
+        {/* <Members /> */}
       </Col>
       <Col xs={12} sm={6}>
-        <Migrations />
+        {/* <Migrations /> */}
+        <Status />
       </Col>
     </Row>
     <Row>
-      <Col xs={12}>
-        <Status />
-      </Col>
+      <Col xs={12}>Other charts here</Col>
     </Row>
   </Container>
 );

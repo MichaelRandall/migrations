@@ -5,10 +5,20 @@ import { Link } from "react-router-dom";
 //Redux
 import { connect } from "react-redux";
 import { getMigrationsAction } from "../../../redux/actions/migrationActions";
+import { getMembersAction } from "../../../redux/actions/memberActions";
 
-function MigrationList({ getMigrationsAction, migrations }) {
+function MigrationList({
+  getMigrationsAction,
+  migrations,
+  getMemberssAction,
+  members,
+}) {
   useEffect(() => {
     getMigrationsAction();
+  }, []);
+
+  useEffect(() => {
+    getMembersAction();
   }, []);
 
   return (
@@ -46,11 +56,13 @@ function MigrationList({ getMigrationsAction, migrations }) {
 function mapStateToProps(state) {
   return {
     migrations: state.app.migrations,
+    members: state.app.members,
   };
 }
 
 const mapDispatchToProps = {
   getMigrationsAction,
+  getMembersAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MigrationList);
