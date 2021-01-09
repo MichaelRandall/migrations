@@ -17,8 +17,9 @@ function About() {
         <Col xs={12}>
           <p>
             This web application tracks the status of migrations from
-            on-premises or from IL2 to the IL4 environment. This app was created
-            using React, Redux, React Router, and other helpful libraries.
+            on-premises or from the IL2 to the IL4 environment. This app was
+            created using React, React-Redux, React-Router, and other JavaScript
+            libraries.
           </p>
         </Col>
       </Row>

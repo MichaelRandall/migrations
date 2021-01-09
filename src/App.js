@@ -4,7 +4,7 @@ import React, { Suspense, lazy } from "react";
 import { Route, Switch } from "react-router-dom";
 
 //Custom Components
-import Dashboard from "./components/dashboard/views/Dashboard";
+import Dashboard from "./components/dashboard/presentationComponents/Dashboard";
 import PageNotFound from "./components/shared/PageNotFound";
 
 //Shared Components
@@ -12,16 +12,22 @@ const Footer = lazy(() => import("./components/shared/Footer"));
 const Navbar = lazy(() => import("./components/shared/Navbar"));
 
 //Lazy Loaded Views
-const About = lazy(() => import("./components/pages/views/About"));
-const Management = lazy(() =>
-  import("./components/migrations/views/Management")
+const About = lazy(() =>
+  import("./components/pages/presentationComponents/About")
 );
-const Members = lazy(() => import("./components/members/views/Members"));
+const Management = lazy(() =>
+  import("./components/migrations/presentationComponents/Management")
+);
+const Members = lazy(() =>
+  import("./components/members/presentationComponents/Members")
+);
 const Modals = lazy(() => import("./components/shared/modals/Modals"));
 const Migrations = lazy(() =>
-  import("./components/migrations/views/Migrations")
+  import("./components/migrations/presentationComponents/Migrations")
 );
-const Status = lazy(() => import("./components/pages/views/Status"));
+const Status = lazy(() =>
+  import("./components/pages/presentationComponents/Status")
+);
 
 function App() {
   return (

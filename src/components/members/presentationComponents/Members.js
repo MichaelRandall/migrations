@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 //Custom Components
-const MembersList = React.lazy(() => import("../cards/List"));
+const MembersList = React.lazy(() => import("../containerComponents/List"));
 
 //Custom CSS
 import "./style.css";

@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 //Custom Components
-import MigrationsList from "../cards/List";
+import MigrationsList from "../containerComponents/List";
 
 import "./style.css";
 
