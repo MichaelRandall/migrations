@@ -1,7 +1,9 @@
 import React from "react";
 import { Provider } from 'react-redux'
 import store from './redux/store'
-import CakeContainer from './components/cakes/CakeContainer'
+import CakeContainer from './components/CakeContainer'
+import IceCreamContainer from "./components/IceCreamContainer"
+import PieContainer from "./components/PieContainer"
 
 //Vendor
 // import { Route, Switch } from "react-router-dom";
@@ -29,9 +31,11 @@ import CakeContainer from './components/cakes/CakeContainer'
 function App() {
   return (
     <Provider store = {store}>
-    <div className="App">
-      <CakeContainer />
-    </div>
+      <div className="App">
+        <CakeContainer />
+        <IceCreamContainer />
+        <PieContainer />
+      </div>
     </Provider>
   );
 }

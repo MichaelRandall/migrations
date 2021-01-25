@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { buyCake } from '../../redux' // came from index.js in root of redux 
+import { buyCake } from '../redux' // came from index.js in root of redux 
 
 // make sure to add props so you have access to mapped items from state
 function CakeContainer(props){
@@ -14,7 +14,7 @@ function CakeContainer(props){
 
 const mapStateToProps = (state) => {
     return {
-        numCakes: state.numCakes
+        numCakes: state.cake.numCakes
     }
 }
 
