@@ -9,7 +9,7 @@ const pieReducer = (state = initialState, action) => {
         case BUY_PIE:
             return {
                 ...state,
-                numPies: state.numPies - 1
+                numPies: state.numPies - action.payload
             }
         default: return state
     }

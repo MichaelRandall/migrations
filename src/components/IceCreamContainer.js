@@ -6,8 +6,8 @@ import { buyIceCream } from '../redux' // came from index.js in root of redux
 function IceCreamContainer(props){
     return (
         <div>
-            <h2>Number of Icecream - {props.numIceCreams}</h2>
-            <button onClick={props.buyIceCream}>Buy Icecream</button>
+            <h2>Number of Ice Cream - {props.numIceCreams}</h2>
+            <button onClick={props.buyIceCream}>Buy Ice Cream</button>
         </div>
     )
 }
