@@ -17,7 +17,6 @@ const Management = lazy(() =>
   import("./components/migrations/views/Management")
 );
 const Members = lazy(() => import("./components/members/views/Members"));
-const Modals = lazy(() => import("./components/shared/modals/Modals"));
 const Migrations = lazy(() =>
   import("./components/migrations/views/Migrations")
 );
@@ -36,7 +35,6 @@ function App() {
         <Route path="/status" component={Status} />
         <Route component={PageNotFound} />
       </Switch>
-      <Modals />
       <Footer />
     </Suspense>
   );

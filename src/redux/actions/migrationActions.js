@@ -89,12 +89,6 @@ export function getStagesAction(props) {
   };
 }
 
-
-
-
-
-/
-
 export function resetStagesAction() {
   return (dispatch) => {
     dispatch({ type: types.RESET_STAGES_SUCCESS });
