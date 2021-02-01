@@ -7,6 +7,7 @@ import IceCreamContainer from "./components/IceCreamContainer"
 import PieContainer from "./components/PieContainer"
 import NewPieContainer from "./components/NewPieContainer";
 import ItemContainer from "./components/ItemContainer";
+import UserContainer from "./components/UserContainer";
 
 
 
@@ -14,12 +15,13 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <CakeContainer />
+        <UserContainer />
+        {/* <CakeContainer />
         <IceCreamContainer />
         <PieContainer />
         <NewPieContainer />
         <ItemContainer cake />
-        <ItemContainer />
+        <ItemContainer /> */}
       </div>
       </Provider>
   );

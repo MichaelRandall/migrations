@@ -6,7 +6,9 @@ import { buyCake, buyIceCream} from '../redux'
 function ItemContainer(props){
     return (
         <div>
+            {/* Number of items loads when page loads */}
             <h2>Number of items - {props.ItemCount}</h2>
+            {/* Number of items updates depending on what passed in on click */}
             <button onClick={props.buyItem}>Buy Items</button>
         </div>
     )
@@ -34,4 +36,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 // synopsis: when ItemContainer component added to App.js, if the component has a property
 // of cake, then numCakes from state is used, otherwise, numIceCreams from state used
+
+// if only want MapDispatchToProps, the use null for mapStateToProps
 export default connect(mapStateToProps, mapDispatchToProps)(ItemContainer)
