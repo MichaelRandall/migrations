@@ -2,12 +2,10 @@ import { combineReducers } from "redux";
 
 import app from "./appReducer";
 import member from "./memberReducer";
-import toggle from "./toggleReducer";
 
 const rootReducer = combineReducers({
   app,
-  member,
-  toggle
+  member
 });
 
 export default rootReducer;
