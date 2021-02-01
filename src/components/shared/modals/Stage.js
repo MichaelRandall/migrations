@@ -9,13 +9,13 @@ import Modal from "react-bootstrap/Modal";
 import { connect } from "react-redux";
 import toggleAction from "../../../redux/actions/toggleActions";
 import {
-  createStageAction,
-  resetStageAction,
-  updateStageAction
+  getStagesAction,
+  resetStagesAction,
+  updateStagesAction
 } from "../../../redux/actions/stageActions";
 
 function StageModal({
-  createStageAction,
+  getStagesAction,
   stage,
   stages,
   resetStageAction,
@@ -39,7 +39,7 @@ function StageModal({
   const actions = {
     error: e => console.log(e),
     save: () => {
-      let executionMethod = details.id ? updateStageAction : createStageAction;
+      let executionMethod = details.id ? updateStagesAction : getStagesAction;
       executionMethod({ ...stage, ...details });
     },
     toggle: () => toggleAction({ details: {}, resource: "stage-modal" }),
@@ -94,10 +94,10 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  createStageAction,
-  resetStageAction,
+  getStagesAction,
+  resetStagesAction,
   toggleAction,
-  updateStageAction
+  updateStagesAction
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(StageModal);
