@@ -7,28 +7,20 @@ import Modal from "react-bootstrap/Modal";
 
 //Redux
 import { connect } from "react-redux";
-import toggleAction from "../../../redux/actions/toggleActions";
-import {
-  createMigrationAction,
-  resetMigrationAction,
-  updateMigrationAction
-} from "../../../redux/actions/migrationActions";
+// import toggleAction from "../../../redux/actions/toggleActions";
+// import {
+//   createMigrationAction,
+//   resetMigrationAction,
+//   updateMigrationAction,
+// } from "../../../redux/actions/migrationsActions";
 
-function MigrationModal({
-  createMigrationAction,
-  members,
-  migration,
-  resetMigrationAction,
-  show,
-  toggleAction,
-  updateMigrationAction
-}) {
+function MigrationModal({ members, migration, show, toggleAction }) {
   const [details, setDetails] = useState(migration || {});
 
   //Step 1. Reset migration on unmount
-  useEffect(() => {
-    return () => resetMigrationAction();
-  }, []);
+  // useEffect(() => {
+  //   return () => resetMigrationAction();
+  // }, []);
 
   //Step 2. Override local state when new migration is passed.
   useEffect(() => {
@@ -37,17 +29,11 @@ function MigrationModal({
 
   // actions used by the onSubmit event of the form
   const actions = {
-    error: e => console.log(e),
-    save: () => {
-      let executionMethod = details.id
-        ? updateMigrationAction
-        : createMigrationAction;
-      executionMethod({ ...migration, ...details });
-    },
+    error: (e) => console.log(e),
     toggle: () => toggleAction({ details: {}, resource: "migration-modal" }),
     update: ({ target }) => {
       setDetails({ ...details, [target.name]: target.value });
-    }
+    },
   };
 
   return (
@@ -92,15 +78,15 @@ function mapStateToProps(state) {
   return {
     members: state.member.data,
     migration: state.app.migration,
-    show: state.toggle.migrationModal
+    show: state.toggle.migrationModal,
   };
 }
 
-const mapDispatchToProps = {
-  createMigrationAction,
-  resetMigrationAction,
-  toggleAction,
-  updateMigrationAction
-};
+// const mapDispatchToProps = {
+//   createMigrationAction,
+//   resetMigrationAction,
+//   toggleAction,
+//   updateMigrationAction,
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MigrationModal);
+export default connect(mapStateToProps)(MigrationModal);

@@ -9,7 +9,7 @@ import Row from "react-bootstrap/Row";
 const Migrations = React.lazy(() =>
   import("../containerComponents/Migrations")
 );
-const Members = React.lazy(() => import("../containerComponents/Members"));
+// const Members = React.lazy(() => import("../containerComponents/Members"));
 const Status = React.lazy(() => import("../containerComponents/Status"));
 
 //Custom CSS
@@ -28,7 +28,7 @@ const DashboardPage = () => (
         {/* <Members /> */}
       </Col>
       <Col xs={12} sm={6}>
-        {/* <Migrations /> */}
+        <Migrations />
         <Status />
       </Col>
     </Row>

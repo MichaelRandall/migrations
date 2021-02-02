@@ -7,8 +7,8 @@ import Popover from "react-bootstrap/Popover";
 
 //Redux
 import { connect } from "react-redux";
-import { getMembersAction } from "../../../redux/actions/memberActions";
-import { getMigrationsAction } from "../../../redux/actions/migrationActions";
+import { getMembers } from "../../../redux/actions/membersActions";
+import { getMigrations } from "../../../redux/actions/migrationsActions";
 
 function Members({ getMembersAction, getMigrationsAction, members }) {
   //Step 1. Startup Actions
@@ -61,8 +61,8 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  getMembersAction,
-  getMigrationsAction,
+  getMembers,
+  getMigrations,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Members);

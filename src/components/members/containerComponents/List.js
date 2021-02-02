@@ -7,12 +7,12 @@ import Popover from "react-bootstrap/Popover";
 
 //Redux
 import { connect } from "react-redux";
-import { getMembersAction } from "../../../redux/actions/memberActions";
+import { getMembers } from "../../../redux/actions/membersActions";
 
 // function MembersList({ getMembersAction, data }) {
 function MemberList({ members }) {
   useEffect(() => {
-    getMembersAction();
+    getMembers();
   }, []);
 
   return members.map((member, i) => (
@@ -47,7 +47,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  getMembersAction,
+  getMembers,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MemberList);

@@ -1,24 +1,18 @@
 import React, { useEffect } from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 //Redux
 import { connect } from "react-redux";
-import { getMigrationsAction } from "../../../redux/actions/migrationActions";
-import { getMembersAction } from "../../../redux/actions/memberActions";
+import { getMigrations } from "../../../redux/actions/migrationsActions";
+import { getMembers } from "../../../redux/actions/membersActions";
 
-function MigrationList({
-  getMigrationsAction,
-  migrations,
-  getMemberssAction,
-  members,
-}) {
+function MigrationList({ getMigrations, migrations, getMembers, members }) {
   useEffect(() => {
-    getMigrationsAction();
+    getMigrations();
   }, []);
 
   useEffect(() => {
-    getMembersAction();
+    getMembers();
   }, []);
 
   return (
@@ -61,8 +55,8 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  getMigrationsAction,
-  getMembersAction,
+  getMigrations,
+  getMembers,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MigrationList);

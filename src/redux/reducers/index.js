@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 
-import app from "./dashboardReducer";
-import member from "./memberReducer";
+import migrations from "./migrationsReducer";
+import members from "./membersReducer";
 import toggle from "./toggleReducer";
 
 const rootReducer = combineReducers({
-  app,
-  member,
+  migrations,
+  members,
   toggle,
 });
 

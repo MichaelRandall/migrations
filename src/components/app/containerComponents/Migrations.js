@@ -6,15 +6,15 @@ import ListGroup from "react-bootstrap/ListGroup";
 
 //Redux
 import { connect } from "react-redux";
-import { getMigrationsAction } from "../../../redux/actions/migrationActions";
+import { getMigrations } from "../../../redux/actions/migrationsActions";
 
 //Custom Methods
 import { migrationColorCode } from "../../../dist/js/support";
 
-function Migrations({ getMigrationsAction, migrations }) {
+function Migrations({ getMigrations, migrations }) {
   //Step 1. On mount load data
   useEffect(() => {
-    getMigrationsAction();
+    getMigrations();
   }, []);
 
   return (
@@ -43,7 +43,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  getMigrationsAction,
+  getMigrations,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Migrations);

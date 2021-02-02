@@ -8,27 +8,27 @@ import Modal from "react-bootstrap/Modal";
 //Redux
 import { connect } from "react-redux";
 import toggleAction from "../../../redux/actions/toggleActions";
-import {
-  createMemberAction,
-  resetMemberAction,
-  updateMemberAction
-} from "../../../redux/actions/memberActions";
+// import {
+//   createMemberAction,
+//   resetMemberAction,
+//   updateMemberAction,
+// } from "../../../redux/actions/memberActions";
 
 function MemberModal({
-  createMemberAction,
+  // createMemberAction,
   member,
-  members,
-  resetMemberAction,
+  // members,
+  // resetMemberAction,
   show,
   toggleAction,
-  updateMemberAction
+  // updateMemberAction,
 }) {
   const [details, setDetails] = useState(member || {});
 
   //Step 1. Reset migration on unmount
-  useEffect(() => {
-    return () => resetMemberAction();
-  }, []);
+  // useEffect(() => {
+  //   return () => resetMemberAction();
+  // }, []);
 
   //Step 2. Override local state when new migration is passed.
   useEffect(() => {
@@ -37,17 +37,17 @@ function MemberModal({
 
   // actions used by the onSubmit event of the form
   const actions = {
-    error: e => console.log(e),
-    save: () => {
-      let executionMethod = details.id
-        ? updateMemberAction
-        : createMemberAction;
-      executionMethod({ ...member, ...details });
-    },
+    error: (e) => console.log(e),
+    // save: () => {
+    //   let executionMethod = details.id
+    //     ? updateMemberAction
+    //     : createMemberAction;
+    //   executionMethod({ ...member, ...details });
+    // },
     toggle: () => toggleAction({ details: {}, resource: "member-modal" }),
     update: ({ target }) => {
       setDetails({ ...details, [target.name]: target.value });
-    }
+    },
   };
 
   return (
@@ -91,15 +91,15 @@ function mapStateToProps(state) {
   return {
     member: state.member.details,
     members: state.member.data,
-    show: state.toggle.memberModal
+    show: state.toggle.memberModal,
   };
 }
 
 const mapDispatchToProps = {
-  createMemberAction,
-  resetMemberAction,
+  // createMemberAction,
+  // resetMemberAction,
   toggleAction,
-  updateMemberAction
+  // updateMemberAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MemberModal);

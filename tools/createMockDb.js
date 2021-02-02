@@ -3,21 +3,10 @@ const fs = require("fs");
 const path = require("path");
 const mockData = require("./mockData");
 
-const {
-  members,
-  migrations,
-  migration_stages,
-  migration_tasks,
-  migration_types,
-  operating_systems,
-} = mockData;
+const { members, migrations } = mockData;
 const data = JSON.stringify({
   members,
   migrations,
-  migration_stages,
-  migration_tasks,
-  migration_types,
-  operating_systems,
 });
 const filepath = path.join(__dirname, "db.json");
 

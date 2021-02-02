@@ -44,10 +44,14 @@ export function deleteMigrationAction(details) {
 }
 
 // Gets a filtered or single migration
+// Thunks
 export function getMigrationAction(props) {
+  console.log("ACTION HERE " + JSON.stringify(props));
   return (dispatch) => {
     return getMigrationApi(props)
       .then((details) => {
+        console.log("DOES THIS FIRE???");
+        console.log("SOME PROPS " + JSON.stringify(props));
         dispatch({ details, type: types.GET_MIGRATION_SUCCESS });
       })
       .catch((error) => {
@@ -57,6 +61,7 @@ export function getMigrationAction(props) {
 }
 
 // Gets full list of migrations
+// thunks
 export function getMigrationsAction(query = {}) {
   return (dispatch) => {
     return getMigrationsApi(query).then((results) => {

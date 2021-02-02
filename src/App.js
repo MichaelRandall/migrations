@@ -4,7 +4,7 @@ import React, { Suspense, lazy } from "react";
 import { Route, Switch } from "react-router-dom";
 
 //Custom Components
-import Dashboard from "./components/dashboard/presentationComponents/Dashboard";
+import Dashboard from "./components/app/presentationComponents/Dashboard";
 import PageNotFound from "./components/shared/PageNotFound";
 
 //Shared Components
@@ -21,7 +21,7 @@ const Management = lazy(() =>
 const Members = lazy(() =>
   import("./components/members/presentationComponents/Members")
 );
-const Modals = lazy(() => import("./components/shared/modals/Modals"));
+// const Modals = lazy(() => import("./components/shared/modals/Modals"));
 const Migrations = lazy(() =>
   import("./components/migrations/presentationComponents/Migrations")
 );
